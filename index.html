@@ -322,12 +322,12 @@
       <p>Trabajos reales de nuestro equipo en hogares y negocios de Puerto Rico.</p>
     </div>
     <div class="insta-grid">
-      <div class="insta-item"><img src="images/products/puerta-moderna.jpg" alt="Puerta moderna aluminio Puerto Rico" /><div class="insta-overlay"><span>Puerta Moderna</span></div></div>
-      <div class="insta-item"><img src="images/products/barandal-cristal.jpg" alt="Barandal cristal Puerto Rico" /><div class="insta-overlay"><span>Barandal Cristal</span></div></div>
-      <div class="insta-item"><img src="images/products/ventana-casement-claro.jpg" alt="Ventana aluminio Puerto Rico" /><div class="insta-overlay"><span>Ventana Casement</span></div></div>
-      <div class="insta-item"><img src="images/products/closet-espejo.jpg" alt="Closet espejo aluminio Puerto Rico" /><div class="insta-overlay"><span>Closet con Espejo</span></div></div>
-      <div class="insta-item"><img src="images/products/barandal-cristal-noche.jpg" alt="Barandal iluminado Puerto Rico" /><div class="insta-overlay"><span>Barandal Iluminado</span></div></div>
-      <div class="insta-item"><img src="images/products/puerta-cristal.jpg" alt="Puerta cristal exterior Puerto Rico" /><div class="insta-overlay"><span>Puerta de Cristal</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/puerta-moderna.jpg','Puerta Moderna')"><img src="images/products/puerta-moderna.jpg" alt="Puerta moderna aluminio Puerto Rico" /><div class="insta-overlay"><span>Puerta Moderna</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/barandal-cristal.jpg','Barandal Cristal')"><img src="images/products/barandal-cristal.jpg" alt="Barandal cristal Puerto Rico" /><div class="insta-overlay"><span>Barandal Cristal</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/ventana-casement-claro.jpg','Ventana Casement')"><img src="images/products/ventana-casement-claro.jpg" alt="Ventana aluminio Puerto Rico" /><div class="insta-overlay"><span>Ventana Casement</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/closet-espejo.jpg','Closet con Espejo')"><img src="images/products/closet-espejo.jpg" alt="Closet espejo aluminio Puerto Rico" /><div class="insta-overlay"><span>Closet con Espejo</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/barandal-cristal-noche.jpg','Barandal Iluminado')"><img src="images/products/barandal-cristal-noche.jpg" alt="Barandal iluminado Puerto Rico" /><div class="insta-overlay"><span>Barandal Iluminado</span></div></div>
+      <div class="insta-item" onclick="openGalleryModal('images/products/puerta-cristal.jpg','Puerta de Cristal')"><img src="images/products/puerta-cristal.jpg" alt="Puerta cristal exterior Puerto Rico" /><div class="insta-overlay"><span>Puerta de Cristal</span></div></div>
     </div>
     <div class="insta-follow reveal">
       <p>¿Quieres ver más proyectos? Próximamente en Instagram.</p>
@@ -463,6 +463,15 @@
   </div>
 
   <script src="script.js"></script>
+
+  <!-- ── Gallery Modal ── -->
+  <div id="galleryModal" class="modal-backdrop">
+    <button class="modal-close" onclick="closeGalleryModal()" aria-label="Cerrar">&#x2715;</button>
+    <div class="gallery-modal-box">
+      <img id="galleryModalImg" src="" alt="" />
+      <div class="gallery-modal-caption" id="galleryModalCaption"></div>
+    </div>
+  </div>
 
   <!-- ── Product Modal ── -->
   <div id="productModal" class="modal-backdrop">

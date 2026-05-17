@@ -325,3 +325,26 @@ function dismissBubble() {
   if (bubble) bubble.classList.remove('active');
   sessionStorage.setItem('waBubbleDismissed', '1');
 }
+
+// ── Gallery Modal ─────────────────────────────────────────────────
+function openGalleryModal(src, caption) {
+  const modal = document.getElementById('galleryModal');
+  document.getElementById('galleryModalImg').src = src;
+  document.getElementById('galleryModalCaption').textContent = caption;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryModal() {
+  document.getElementById('galleryModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const gModal = document.getElementById('galleryModal');
+  if (gModal) {
+    gModal.addEventListener('click', (e) => {
+      if (e.target === gModal) closeGalleryModal();
+    });
+  }
+});

@@ -1,14 +1,5 @@
 {
-  "version": 2,
-  "functions": {
-    "api/send_email.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "routes": [
-    {
-      "src": "/send_email.php",
-      "dest": "/api/send_email.js"
-    }
+  "rewrites": [
+    { "source": "/send_email.php", "destination": "/api/send_email" }
   ]
 }

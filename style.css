@@ -665,3 +665,171 @@ img { max-width: 100%; display: block; }
   .modal-box { flex-direction: column; max-height: 95vh; }
   .modal-img-wrap { flex: 0 0 240px; }
 }
+
+/* ── Google Reviews ─────────────────────────────────────────────── */
+.reviews-section {
+  padding: 5rem 1.5rem;
+  background: #faf8f5;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+}
+.review-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+.review-stars { color: #f5a623; font-size: 1.1rem; letter-spacing: 2px; }
+.review-text { font-size: 0.92rem; color: #4a4540; line-height: 1.7; flex: 1; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+.review-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #9a6f3a; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1rem; flex-shrink: 0;
+}
+.review-name { font-weight: 600; font-size: 0.9rem; color: #151210; }
+.review-location { font-size: 0.78rem; color: #9a9590; }
+.reviews-cta { text-align: center; margin-top: 2rem; }
+
+/* ── Instagram / Gallery ─────────────────────────────────────────── */
+.instagram-section {
+  padding: 5rem 1.5rem;
+  background: #fff;
+}
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 900px;
+  margin: 2.5rem auto 1.5rem;
+}
+.insta-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.insta-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+.insta-item:hover img { transform: scale(1.06); }
+.insta-overlay {
+  position: absolute; inset: 0;
+  background: rgba(21,18,16,0.5);
+  display: flex; align-items: flex-end;
+  padding: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.insta-item:hover .insta-overlay { opacity: 1; }
+.insta-overlay span {
+  color: #fff; font-size: 0.82rem;
+  font-weight: 600; letter-spacing: 0.5px;
+}
+.insta-follow { text-align: center; }
+.insta-follow p { color: #777; margin-bottom: 1rem; font-size: 0.9rem; }
+.btn-ghost-dark {
+  display: inline-block;
+  border: 1.5px solid #151210;
+  color: #151210;
+  padding: 0.65rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-ghost-dark:hover { background: #151210; color: #fff; }
+@media (max-width: 600px) {
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Floating Call Button (mobile only) ─────────────────────────── */
+.float-call {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 18px;
+  background: #151210;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.65rem 1.1rem;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  z-index: 900;
+  transition: background 0.2s;
+}
+.float-call svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+.float-call:hover { background: #2a2520; }
+@media (max-width: 768px) {
+  .float-call { display: flex; }
+}
+
+/* ── WhatsApp Greeting Bubble ────────────────────────────────────── */
+.wa-bubble {
+  position: fixed;
+  bottom: 90px;
+  right: 18px;
+  width: 300px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  z-index: 950;
+  overflow: hidden;
+  animation: bubbleIn 0.35s ease;
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.wa-bubble-close {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: none; cursor: pointer;
+  color: #999; font-size: 16px; line-height: 1;
+}
+.wa-bubble-close:hover { color: #333; }
+.wa-bubble-avatar {
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wa-bubble-content { padding: 1rem 1rem 1rem 0; flex: 1; }
+.wa-bubble { display: none; flex-direction: row; gap: 0; padding: 1rem; align-items: flex-start; gap: 0.75rem; }
+.wa-bubble.active { display: flex !important; }
+.wa-bubble-name { font-weight: 700; font-size: 0.85rem; color: #151210; margin-bottom: 0.35rem; }
+.wa-bubble-msg { font-size: 0.82rem; color: #4a4540; line-height: 1.55; margin-bottom: 0.75rem; }
+.wa-bubble-btn {
+  display: block;
+  background: #25d366;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wa-bubble-btn:hover { background: #1ebe5d; }

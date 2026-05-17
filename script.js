@@ -308,3 +308,20 @@ document.addEventListener('DOMContentLoaded', () => {
 setMinDate();
 setupScheduler();
 renderProducts('all');
+
+// ── WhatsApp Greeting Bubble ──────────────────────────────────────
+(function () {
+  const bubble = document.getElementById('waBubble');
+  if (!bubble) return;
+  const dismissed = sessionStorage.getItem('waBubbleDismissed');
+  if (dismissed) return;
+  setTimeout(() => {
+    bubble.classList.add('active');
+  }, 10000); // show after 10 seconds
+})();
+
+function dismissBubble() {
+  const bubble = document.getElementById('waBubble');
+  if (bubble) bubble.classList.remove('active');
+  sessionStorage.setItem('waBubbleDismissed', '1');
+}

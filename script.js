@@ -122,9 +122,10 @@ function renderProducts(filter = 'all') {
   const list = filter === 'all' ? products : products.filter((p) => p.category === filter);
   grid.innerHTML = list.map((p) => `
     <article class="product-card reveal visible">
-      <div class="card-img">
+      <div class="card-img" onclick="openModal('${p.id}')" style="cursor:pointer;">
         <img src="${p.image}" alt="${p.name}">
         ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
+        <div class="card-img-overlay">Ver detalle →</div>
       </div>
       <div class="card-body">
         <h3 class="card-name">${p.name}</h3>
@@ -136,6 +137,30 @@ function renderProducts(filter = 'all') {
       </div>
     </article>
   `).join('');
+}
+
+function openModal(productId) {
+  const p = products.find((p) => p.id === productId);
+  if (!p) return;
+
+  const modal = document.getElementById('productModal');
+  document.getElementById('modalImg').src = p.image;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalBadge').textContent = p.badge || '';
+  document.getElementById('modalBadge').style.display = p.badge ? 'inline-block' : 'none';
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalDesc').textContent = p.description;
+  document.getElementById('modalBenefits').innerHTML = p.benefits.map((b) => `<li>✔ ${b}</li>`).join('');
+  document.getElementById('modalCta').href = productWhatsappLink(p.name);
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const modal = document.getElementById('productModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 function filterProducts(cat, btn) {
@@ -266,6 +291,19 @@ async function handleSubmit(event) {
     if (submitBtn) submitBtn.disabled = false;
   }
 }
+
+// Modal backdrop & keyboard close
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('productModal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+});
 
 setMinDate();
 setupScheduler();

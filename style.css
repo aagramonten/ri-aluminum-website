@@ -520,3 +520,148 @@ img { max-width: 100%; display: block; }
   .whatsapp-float span { display: none; }
   .whatsapp-float { width: 58px; height: 58px; padding: 0; justify-content: center; }
 }
+/* ── Product Modal ─────────────────────────────────────────────── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-backdrop.active {
+  display: flex;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(0,0,0,0.8); }
+.modal-img-wrap {
+  position: relative;
+  flex: 0 0 50%;
+  background: #f5f1eb;
+}
+.modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.modal-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #151210;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.modal-info {
+  flex: 1;
+  padding: 2rem 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.modal-info h2 {
+  font-size: 1.4rem;
+  color: #151210;
+  margin: 0;
+  line-height: 1.3;
+}
+.modal-info p {
+  font-size: 0.95rem;
+  color: #5a5550;
+  line-height: 1.65;
+  margin: 0;
+}
+.modal-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.modal-benefits li {
+  font-size: 0.9rem;
+  color: #3a3530;
+}
+.modal-cta {
+  display: inline-block;
+  margin-top: auto;
+  background: #25d366;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s;
+}
+.modal-cta:hover { background: #1ebe5d; }
+
+/* Hover overlay on card image */
+.card-img { position: relative; overflow: hidden; }
+.card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(21,18,16,0.45);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card-img:hover .card-img-overlay { opacity: 1; }
+
+/* Mobile modal */
+@media (max-width: 640px) {
+  .modal-box { flex-direction: column; max-height: 95vh; }
+  .modal-img-wrap { flex: 0 0 240px; }
+}

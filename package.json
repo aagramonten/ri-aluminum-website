@@ -1,0 +1,12 @@
+{
+  "name": "ri-aluminum",
+  "version": "1.0.0",
+  "description": "RI Aluminum — Richardson Industrial PR website",
+  "private": true,
+  "dependencies": {
+    "resend": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

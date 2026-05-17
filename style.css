@@ -307,7 +307,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 3rem;
 }
 .section-h2 { font-size: clamp(3.2rem, 7vw, 6rem); color: var(--dark); }
@@ -326,7 +326,7 @@ img { max-width: 100%; display: block; }
   transition: var(--transition);
 }
 .filter-btn.active, .filter-btn:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.7rem; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.7rem; max-width: 1100px; margin: 0 auto; }
 .product-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -673,9 +673,9 @@ img { max-width: 100%; display: block; }
 }
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 2.5rem auto;
 }
 .review-card {

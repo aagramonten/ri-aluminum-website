@@ -683,13 +683,64 @@ img { max-width: 100%; display: block; }
 }
 .gallery-item:hover .gallery-caption,
 .gallery-item:focus-visible .gallery-caption { opacity: 1; }
+.ba-block { max-width: 980px; margin: 0 auto 2.25rem; }
+.ba-heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
+  font-size: .75rem;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+.ba-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.ba-half {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  overflow: hidden;
+}
+.ba-half img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.ba-half:hover img, .ba-half:focus-visible img { transform: scale(1.05); }
+.ba-tag {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  background: rgba(18,18,18,.72);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.ba-tag-after { background: var(--green); }
+
 .gallery-follow { text-align: center; }
 
 @media (max-width: 980px) {
   .gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
+@media (max-width: 980px) {
+  .ba-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 720px) {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .4rem; }
+  .ba-grid { gap: .6rem; }
+  .ba-tag { font-size: .58rem; padding: 4px 8px; left: 6px; bottom: 6px; }
   /* Captions can't be hovered on a phone, so they stay on. */
   .gallery-caption { opacity: 1; font-size: .7rem; padding: 1.2rem .6rem .5rem; }
 }

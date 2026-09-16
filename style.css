@@ -365,6 +365,17 @@ img { max-width: 100%; display: block; }
   color: #fff;
 }
 .appointment-section .section-h2 { color: #fff; }
+/* The italic half of a heading is set apart by its face, not its color —
+   on the dark sections the dark tint made it disappear. Same for the
+   eyebrows and their rules, which are tinted the same near-black. */
+.appointment-section .section-h2 em,
+.estimate-section .section-h2 em { color: rgba(255,255,255,.62); }
+.appointment-section .section-eyebrow,
+.estimate-section .section-eyebrow { color: rgba(255,255,255,.62); }
+.appointment-section .section-eyebrow span,
+.estimate-section .section-eyebrow span { background: rgba(255,255,255,.42); }
+/* The logo file is the dark one; the footer behind it is black. */
+.footer-logo-img { filter: invert(1) brightness(1.6); }
 .appointment-list { margin-top: 1.5rem; list-style: none; display: grid; gap: .65rem; color: rgba(255,255,255,.78); }
 .scheduler-card {
   background: #fff;
@@ -557,11 +568,13 @@ img { max-width: 100%; display: block; }
   .category-card h3 { font-size: 1.6rem; }
 
 
-  .reviews-grid { grid-template-columns: 1fr; }
   .section-center { margin-bottom: 2rem; }
 
   .whatsapp-float span { display: none; }
   .whatsapp-float { width: 58px; height: 58px; padding: 0; justify-content: center; }
+
+  /* Leave room under the last row of links for the two floating buttons. */
+  .footer { padding-bottom: 7rem; }
 }
 /* ── Lightbox ──────────────────────────────────────────────────── */
 .modal-backdrop {
@@ -637,6 +650,9 @@ img { max-width: 100%; display: block; }
 .review-name { font-weight: 600; font-size: 0.9rem; color: #151210; }
 .review-location { font-size: 0.78rem; color: #9a9590; }
 .reviews-cta { text-align: center; margin-top: 2rem; }
+@media (max-width: 720px) {
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
 
 /* ── Galería ─────────────────────────────────────────────────────── */
 .gallery-section {
@@ -780,7 +796,7 @@ img { max-width: 100%; display: block; }
 .float-call svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
 .float-call:hover { background: #2a2520; }
 @media (max-width: 768px) {
-  .float-call { display: flex; }
+  .float-call { display: flex; bottom: 20px; right: auto; left: 18px; }
 }
 
 /* ── WhatsApp Greeting Bubble ────────────────────────────────────── */
@@ -788,7 +804,7 @@ img { max-width: 100%; display: block; }
   position: fixed;
   bottom: 90px;
   right: 18px;
-  width: 300px;
+  width: min(300px, calc(100vw - 88px));
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);

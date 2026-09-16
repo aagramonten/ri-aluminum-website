@@ -490,17 +490,6 @@ img { max-width: 100%; display: block; }
   letter-spacing: .6px;
 }
 .footer-links { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; color: rgba(255,255,255,.82); }
-.footer-social { display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap; margin-top: 1.2rem; }
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  color: rgba(255,255,255,.7);
-  font-size: .82rem;
-  transition: var(--transition);
-}
-.footer-social a:hover { color: #fff; }
-.footer-social svg { width: 19px; height: 19px; }
 .footer-copyright { margin-top: 1.6rem; color: rgba(255,255,255,.45); font-size: .8rem; }
 
 .whatsapp-float {

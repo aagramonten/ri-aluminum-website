@@ -197,8 +197,6 @@ img { max-width: 100%; display: block; }
 .quick-quote-card {
   background: var(--white);
   border-radius: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.05);
   border: 1px solid var(--border);
@@ -207,7 +205,7 @@ img { max-width: 100%; display: block; }
 }
 
 .quote-content {
-  padding: 50px;
+  padding: clamp(2rem, 5vw, 3.25rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -260,23 +258,6 @@ img { max-width: 100%; display: block; }
   background: #20bd5a;
 }
 
-/* Espacio y sombra para el mockup del celular */
-.quote-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px; 
-  background: #f8f9fa; 
-}
-
-.quote-image img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 480px; 
-  object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12)); 
-}
 
 /* --- TICKER Y TRUST STRIP --- */
 .ticker-bar { background: var(--darker); color: var(--white); padding: 1.2rem 0; overflow: hidden; white-space: nowrap; }
@@ -301,50 +282,77 @@ img { max-width: 100%; display: block; }
 .trust-item strong { display: block; font-size: 1.1rem; margin-bottom: .45rem; }
 .trust-item p { color: var(--muted); line-height: 1.6; }
 
-/* --- CATÁLOGO --- */
-.catalog-section { padding: 6rem 5%; background: #ffffff; }
-.catalog-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-.section-h2 { font-size: clamp(3.2rem, 7vw, 6rem); color: var(--dark); }
-.catalog-header p, .section-center p, .appointment-copy p, .estimate-left p, .final-cta p {
+/* --- CATEGORÍAS / LO QUE TRABAJAMOS --- */
+.categories-section { padding: clamp(3.5rem, 8vw, 6rem) 5%; background: #ffffff; }
+.section-h2 { font-size: clamp(2.6rem, 7vw, 6rem); color: var(--dark); }
+.section-center p, .appointment-copy p, .estimate-left p, .final-cta p {
   color: var(--muted);
   line-height: 1.75;
   max-width: 640px;
 }
-.filter-bar { display: flex; gap: .7rem; flex-wrap: wrap; }
-.filter-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  padding: .75rem 1.15rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: var(--transition);
+.section-center p { margin-inline: auto; }
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-.filter-btn.active, .filter-btn:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.7rem; max-width: 1100px; margin: 0 auto; }
-.product-card {
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: 1.9rem 1.6rem;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 12px 35px rgba(0,0,0,.045);
+  border-radius: var(--radius);
   transition: var(--transition);
 }
-.product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
-.card-img { height: 260px; position: relative; overflow: hidden; background: #eee; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
-.product-card:hover .card-img img { transform: scale(1.06); }
-.card-badge { position: absolute; top: 15px; right: 15px; background: var(--primary); color: var(--white); font-size: .72rem; font-weight: 700; padding: 7px 12px; border-radius: 999px; }
-.card-body { padding: 1.65rem; }
-.card-name { font-family: 'Cormorant', serif; font-size: 1.65rem; margin-bottom: .7rem; }
-.card-desc { color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
-.card-benefits { list-style: none; display: grid; gap: .35rem; color: #4d463f; font-size: .9rem; margin-bottom: 1.25rem; }
-.card-cta { font-weight: 700; color: var(--primary-dark); }
+.category-card:hover {
+  border-color: rgba(0,0,0,.16);
+  box-shadow: 0 18px 44px rgba(0,0,0,.07);
+  transform: translateY(-4px);
+}
+.category-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--primary-dark);
+  margin-bottom: .35rem;
+}
+.category-icon svg { width: 22px; height: 22px; }
+.category-card h3 {
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+  font-size: 1.85rem;
+  line-height: 1.1;
+}
+.category-card p { color: var(--muted); line-height: 1.6; font-size: .95rem; }
+.category-card ul {
+  list-style: none;
+  display: grid;
+  gap: .3rem;
+  margin: .35rem 0 .9rem;
+  font-size: .88rem;
+  color: #4d463f;
+}
+.category-card li::before { content: "·"; margin-right: .5rem; color: var(--muted); }
+.category-cta {
+  margin-top: auto;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--primary-dark);
+}
+.category-cta em { font-style: normal; display: inline-block; transition: var(--transition); }
+.category-card:hover .category-cta em { transform: translateX(4px); }
 
 /* --- AGENDA Y CALENDARIO MODERNO --- */
 .appointment-section {
@@ -407,17 +415,9 @@ img { max-width: 100%; display: block; }
 .appointment-summary { margin: 1.2rem 0; padding: 1rem; border-radius: 14px; background: var(--light); color: var(--muted); line-height: 1.6; }
 .scheduler-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
 
-/* --- TRANSFORMACIONES ANTES Y DESPUÉS --- */
-.transformations-section { padding: 6rem 5%; background: var(--light); }
-.section-center { text-align: center; margin-bottom: 3rem; }
+/* --- GALERÍA --- */
+.section-center { text-align: center; margin-bottom: 2.5rem; }
 .section-eyebrow.center { justify-content: center; }
-.ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.6rem; max-width: 1180px; margin: 0 auto; }
-.ba-container { border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); display: flex; min-height: 360px; background: #fff; }
-.ba-left, .ba-right { flex: 1; position: relative; overflow: hidden; }
-.ba-left { border-right: 2px solid #fff; }
-.ba-container img { width: 100%; height: 100%; object-fit: cover; }
-.ba-label { position: absolute; left: 12px; bottom: 12px; background: rgba(0,0,0,.72); color: #fff; padding: 6px 11px; font-size: .68rem; font-weight: 700; border-radius: 999px; z-index: 2; letter-spacing: 1px; }
-.ba-label-after { background: var(--dark); left: auto; right: 12px; }
 
 /* --- ESTIMADO Y CONTACTO --- */
 .estimate-section { padding: 6rem 5%; background: var(--darker); color: #fff; }
@@ -473,17 +473,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 980px) {
   .hero, .appointment-section, .estimate-inner { grid-template-columns: 1fr; }
   .hero { padding-top: 4rem; }
-  .catalog-header { align-items: flex-start; flex-direction: column; }
   .trust-strip { grid-template-columns: 1fr; }
-  
-  .quick-quote-card { grid-template-columns: 1fr; }
-  .quote-image { 
-    order: -1; 
-    padding: 30px; 
-  }
-  .quote-image img { 
-    max-height: 350px; 
-  }
   .quote-content { padding: 40px 30px; }
 }
 
@@ -560,15 +550,20 @@ img { max-width: 100%; display: block; }
   
   .modern-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
   .form-row-2 { grid-template-columns: 1fr; }
-  
-  .ba-container { flex-direction: column; }
-  .ba-left, .ba-right { min-height: 260px; }
-  .ba-left { border-right: none; border-bottom: 2px solid #fff; }
-  
+
+  /* One category per row reads better than two cramped columns. */
+  .category-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .category-card { padding: 1.5rem 1.35rem; }
+  .category-card h3 { font-size: 1.6rem; }
+
+
+  .reviews-grid { grid-template-columns: 1fr; }
+  .section-center { margin-bottom: 2rem; }
+
   .whatsapp-float span { display: none; }
   .whatsapp-float { width: 58px; height: 58px; padding: 0; justify-content: center; }
 }
-/* ── Product Modal ─────────────────────────────────────────────── */
+/* ── Lightbox ──────────────────────────────────────────────────── */
 .modal-backdrop {
   display: none;
   position: fixed;
@@ -581,19 +576,6 @@ img { max-width: 100%; display: block; }
 }
 .modal-backdrop.active {
   display: flex;
-}
-.modal-box {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  max-width: 860px;
-  width: 100%;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
-  animation: modalIn 0.25s ease;
 }
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.95); }
@@ -619,100 +601,6 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s, transform 0.15s;
 }
 .modal-close:hover { background: #f0ebe3; transform: scale(1.1); }
-.modal-img-wrap {
-  position: relative;
-  flex: 0 0 50%;
-  background: #f5f1eb;
-}
-.modal-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.modal-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: #151210;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-.modal-info {
-  flex: 1;
-  padding: 2rem 1.75rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.modal-info h2 {
-  font-size: 1.4rem;
-  color: #151210;
-  margin: 0;
-  line-height: 1.3;
-}
-.modal-info p {
-  font-size: 0.95rem;
-  color: #5a5550;
-  line-height: 1.65;
-  margin: 0;
-}
-.modal-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-.modal-benefits li {
-  font-size: 0.9rem;
-  color: #3a3530;
-}
-.modal-cta {
-  display: inline-block;
-  margin-top: auto;
-  background: #25d366;
-  color: #fff;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  text-align: center;
-  transition: background 0.2s;
-}
-.modal-cta:hover { background: #1ebe5d; }
-
-/* Hover overlay on card image */
-.card-img { position: relative; overflow: hidden; }
-.card-img-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(21,18,16,0.45);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.card-img:hover .card-img-overlay { opacity: 1; }
-
-/* Mobile modal */
-@media (max-width: 640px) {
-  .modal-box { flex-direction: column; max-height: 95vh; }
-  .modal-img-wrap { flex: 0 0 240px; }
-}
 
 /* ── Google Reviews ─────────────────────────────────────────────── */
 .reviews-section {
@@ -750,46 +638,62 @@ img { max-width: 100%; display: block; }
 .review-location { font-size: 0.78rem; color: #9a9590; }
 .reviews-cta { text-align: center; margin-top: 2rem; }
 
-/* ── Instagram / Gallery ─────────────────────────────────────────── */
-.instagram-section {
-  padding: 5rem 1.5rem;
+/* ── Galería ─────────────────────────────────────────────────────── */
+.gallery-section {
+  padding: clamp(3.5rem, 8vw, 5rem) 1.5rem;
   background: #fff;
 }
-.insta-grid {
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  max-width: 900px;
-  margin: 2.5rem auto 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+  max-width: 980px;
+  margin: 0 auto 2rem;
 }
-.insta-item {
+.gallery-item {
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  padding: 0;
+  border: none;
+  background: var(--border);
+  display: block;
+  width: 100%;
 }
-.insta-item img {
+.gallery-item img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 0.35s;
+  transition: transform .35s ease;
 }
-.insta-item:hover img { transform: scale(1.06); }
-.insta-overlay {
-  position: absolute; inset: 0;
-  background: rgba(21,18,16,0.5);
-  display: flex; align-items: flex-end;
-  padding: 0.75rem;
+.gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.06); }
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem .8rem .7rem;
+  background: linear-gradient(to top, rgba(18,18,18,.78), transparent);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .4px;
+  text-align: left;
   opacity: 0;
-  transition: opacity 0.25s;
+  transition: opacity .25s ease;
 }
-.insta-item:hover .insta-overlay { opacity: 1; }
-.insta-overlay span {
-  color: #fff; font-size: 0.82rem;
-  font-weight: 600; letter-spacing: 0.5px;
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus-visible .gallery-caption { opacity: 1; }
+.gallery-follow { text-align: center; }
+
+@media (max-width: 980px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
-.insta-follow { text-align: center; }
-.insta-follow p { color: #777; margin-bottom: 1rem; font-size: 0.9rem; }
+@media (max-width: 720px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .4rem; }
+  /* Captions can't be hovered on a phone, so they stay on. */
+  .gallery-caption { opacity: 1; font-size: .7rem; padding: 1.2rem .6rem .5rem; }
+}
+.gallery-follow p { color: #777; margin-bottom: 1rem; font-size: 0.9rem; }
 .btn-ghost-dark {
   display: inline-block;
   border: 1.5px solid #151210;
@@ -802,9 +706,6 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s, color 0.2s;
 }
 .btn-ghost-dark:hover { background: #151210; color: #fff; }
-@media (max-width: 600px) {
-  .insta-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
 /* ── Floating Call Button (mobile only) ─────────────────────────── */
 .float-call {
@@ -883,7 +784,7 @@ img { max-width: 100%; display: block; }
 .wa-bubble-btn:hover { background: #1ebe5d; }
 
 /* ── Gallery Modal ───────────────────────────────────────────────── */
-.insta-item { cursor: pointer; }
+
 .gallery-modal-box {
   background: #000;
   border-radius: 12px;

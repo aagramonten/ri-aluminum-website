@@ -75,7 +75,8 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
-      <li><a href="#catalog" onclick="closeMenu()">Catálogo</a></li>
+      <li><a href="#catalog" onclick="closeMenu()">Lo que trabajamos</a></li>
+      <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
       <li><a href="#appointment" onclick="closeMenu()">Agendar visita</a></li>
       <li><a href="#estimate" class="nav-cta" onclick="closeMenu()">Estimado Gratis</a></li>
     </ul>
@@ -162,30 +163,65 @@
           <span class="icon">📸</span> Enviar fotos ahora
         </a>
       </div>
-      <div class="quote-image">
-         <img src="images/whatsapp-ui-mockup.jpg" alt="Cotiza rápido por WhatsApp" />
-      </div>
     </div>
   </section>
 
-  <section id="catalog" class="catalog-section">
-    <div class="catalog-header reveal">
-      <div>
-        <div class="section-eyebrow"><span></span>Catálogo</div>
-        <h2 class="section-h2">Nuestra<br /><em>Colección</em></h2>
-        <p>Diseños personalizados para puertas, ventanas, closets y barandales en Puerto Rico. Selecciona una categoría y cotiza por WhatsApp.</p>
-      </div>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
-        <button class="filter-btn" onclick="filterProducts('entry', this)">Puertas</button>
-        <button class="filter-btn" onclick="filterProducts('window', this)">Ventanas</button>
-        <button class="filter-btn" onclick="filterProducts('railing', this)">Barandales</button>
-        <button class="filter-btn" onclick="filterProducts('closet', this)">Closets</button>
-      </div>
+  <section id="catalog" class="categories-section">
+    <div class="section-center reveal">
+      <div class="section-eyebrow center"><span></span>Lo que trabajamos<span></span></div>
+      <h2 class="section-h2">Nuestras<br /><em>especialidades</em></h2>
+      <p>Fabricación e instalación a la medida en aluminio, cristal y madera para hogares y negocios en toda Puerto Rico.</p>
     </div>
 
-    <div id="product-grid" class="product-grid"></div>
+    <div class="category-grid">
+      <a class="category-card reveal" href="https://wa.me/19393491440?text=Hola%2C%20me%20interesan%20las%20puertas.%20%C2%BFMe%20pueden%20orientar%3F" target="_blank" rel="noopener">
+        <span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="2.5" width="14" height="19" rx="1"/><circle cx="15.5" cy="12" r=".9" fill="currentColor" stroke="none"/></svg></span>
+        <h3>Puertas</h3>
+        <p>De entrada, de interior y dobles — en aluminio, cristal y acabado tipo madera.</p>
+        <ul>
+          <li>Entrada y exterior</li>
+          <li>Interiores y divisiones</li>
+          <li>Acabado tipo madera</li>
+        </ul>
+        <span class="category-cta">Cotizar <em>&rarr;</em></span>
+      </a>
+
+      <a class="category-card reveal" href="https://wa.me/19393491440?text=Hola%2C%20me%20interesan%20las%20ventanas.%20%C2%BFMe%20pueden%20orientar%3F" target="_blank" rel="noopener">
+        <span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3.5" width="18" height="17" rx="1"/><path d="M12 3.5v17M3 12h18"/></svg></span>
+        <h3>Ventanas</h3>
+        <p>Casement, corredizas y cristales fijos con cristal claro o esmerilado.</p>
+        <ul>
+          <li>Cristal claro o esmerilado</li>
+          <li>Cristales fijos</li>
+          <li>A la medida del vano</li>
+        </ul>
+        <span class="category-cta">Cotizar <em>&rarr;</em></span>
+      </a>
+
+      <a class="category-card reveal" href="https://wa.me/19393491440?text=Hola%2C%20me%20interesan%20los%20closets.%20%C2%BFMe%20pueden%20orientar%3F" target="_blank" rel="noopener">
+        <span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="2.5" width="16" height="19" rx="1"/><path d="M12 2.5v19M10 11.5v2M14 11.5v2"/></svg></span>
+        <h3>Closets</h3>
+        <p>Puertas de closet con espejo o cristal esmerilado, corredizas y plegables.</p>
+        <ul>
+          <li>Con espejo</li>
+          <li>Cristal esmerilado</li>
+          <li>Corredizas y plegables</li>
+        </ul>
+        <span class="category-cta">Cotizar <em>&rarr;</em></span>
+      </a>
+
+      <a class="category-card reveal" href="https://wa.me/19393491440?text=Hola%2C%20me%20interesan%20los%20barandales.%20%C2%BFMe%20pueden%20orientar%3F" target="_blank" rel="noopener">
+        <span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 6.5h19M4.5 6.5v13M12 6.5v13M19.5 6.5v13M2.5 19.5h19"/></svg></span>
+        <h3>Barandales</h3>
+        <p>De cristal, aluminio y madera para balcones, terrazas, escaleras y comercios.</p>
+        <ul>
+          <li>Cristal templado</li>
+          <li>Aluminio y madera</li>
+          <li>Residencial y comercial</li>
+        </ul>
+        <span class="category-cta">Cotizar <em>&rarr;</em></span>
+      </a>
+    </div>
   </section>
 
   <!-- ── Google Reviews ── -->
@@ -291,56 +327,52 @@
     </div>
   </section>
 
-  <section class="transformations-section reveal">
-    <div class="section-center">
-      <div class="section-eyebrow center"><span></span>Resultados reales<span></span></div>
-      <h2 class="section-h2">Antes y <em>Después</em></h2>
-      <p>Transformaciones con acabados modernos, funcionales y seguros.</p>
-    </div>
-
-    <div class="ba-grid">
-      <div class="ba-container">
-        <div class="ba-left">
-          <span class="ba-label">ANTES</span>
-          <img src="images/despues-puerta.jpg" alt="Puerta antes de remodelación en Puerto Rico" />
-        </div>
-        <div class="ba-right">
-          <span class="ba-label ba-label-after">DESPUÉS</span>
-          <img src="images/antes-puerta.jpg" alt="Puerta moderna de aluminio instalada en Puerto Rico" />
-        </div>
-      </div>
-
-      <div class="ba-container">
-        <div class="ba-left">
-          <span class="ba-label">ANTES</span>
-          <img src="images/despues-closet.jpg" alt="Closet antes de remodelación" />
-        </div>
-        <div class="ba-right">
-          <span class="ba-label ba-label-after">DESPUÉS</span>
-          <img src="images/antes-closet.jpg" alt="Closet moderno de aluminio instalado en Puerto Rico" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Instagram / Gallery ── -->
-  <section class="instagram-section reveal">
-    <div class="section-center">
+  <!-- ── Galería ── -->
+  <section id="galeria" class="gallery-section">
+    <div class="section-center reveal">
       <div class="section-eyebrow center"><span></span>Galería<span></span></div>
-      <h2 class="section-h2">Proyectos<br /><em>Completados</em></h2>
-      <p>Trabajos reales de nuestro equipo en hogares y negocios de Puerto Rico.</p>
+      <h2 class="section-h2">Proyectos<br /><em>completados</em></h2>
+      <p>Trabajos reales de nuestro equipo en hogares y negocios de Puerto Rico. Toca una foto para verla completa.</p>
     </div>
-    <div class="insta-grid">
-      <div class="insta-item" onclick="openGalleryModal('images/products/puerta-moderna.jpg','Puerta Moderna')"><img src="images/products/puerta-moderna.jpg" alt="Puerta moderna aluminio Puerto Rico" /><div class="insta-overlay"><span>Puerta Moderna</span></div></div>
-      <div class="insta-item" onclick="openGalleryModal('images/products/barandal-cristal.jpg','Barandal Cristal')"><img src="images/products/barandal-cristal.jpg" alt="Barandal cristal Puerto Rico" /><div class="insta-overlay"><span>Barandal Cristal</span></div></div>
-      <div class="insta-item" onclick="openGalleryModal('images/products/ventana-casement-claro.jpg','Ventana Casement')"><img src="images/products/ventana-casement-claro.jpg" alt="Ventana aluminio Puerto Rico" /><div class="insta-overlay"><span>Ventana Casement</span></div></div>
-      <div class="insta-item" onclick="openGalleryModal('images/products/closet-espejo.jpg','Closet con Espejo')"><img src="images/products/closet-espejo.jpg" alt="Closet espejo aluminio Puerto Rico" /><div class="insta-overlay"><span>Closet con Espejo</span></div></div>
-      <div class="insta-item" onclick="openGalleryModal('images/products/barandal-cristal-noche.jpg','Barandal Iluminado')"><img src="images/products/barandal-cristal-noche.jpg" alt="Barandal iluminado Puerto Rico" /><div class="insta-overlay"><span>Barandal Iluminado</span></div></div>
-      <div class="insta-item" onclick="openGalleryModal('images/products/puerta-cristal.jpg','Puerta de Cristal')"><img src="images/products/puerta-cristal.jpg" alt="Puerta cristal exterior Puerto Rico" /><div class="insta-overlay"><span>Puerta de Cristal</span></div></div>
+
+    <div class="gallery-grid">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-moderna.jpg','Puerta moderna con cristal')">
+        <img src="images/products/puerta-moderna.jpg" alt="Puerta moderna con cristal — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Puerta moderna con cristal</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-cristal.jpg','Puerta exterior de cristal')">
+        <img src="images/products/puerta-cristal.jpg" alt="Puerta exterior de cristal — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Puerta exterior de cristal</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puertas-interior-cristal.jpg','Puertas dobles de interior')">
+        <img src="images/products/puertas-interior-cristal.jpg" alt="Puertas dobles de interior — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Puertas dobles de interior</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal.jpg','Barandal de cristal')">
+        <img src="images/products/barandal-cristal.jpg" alt="Barandal de cristal — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Barandal de cristal</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal-noche.jpg','Barandal cristal iluminado')">
+        <img src="images/products/barandal-cristal-noche.jpg" alt="Barandal cristal iluminado — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Barandal cristal iluminado</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-madera-dia.jpg','Barandal aluminio y madera')">
+        <img src="images/products/barandal-madera-dia.jpg" alt="Barandal aluminio y madera — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Barandal aluminio y madera</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/ventana-casement-claro.jpg','Ventana casement')">
+        <img src="images/products/ventana-casement-claro.jpg" alt="Ventana casement — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Ventana casement</span>
+      </button>
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/closet-espejo.jpg','Closet con espejo')">
+        <img src="images/products/closet-espejo.jpg" alt="Closet con espejo — RI Aluminum Puerto Rico" loading="lazy" />
+        <span class="gallery-caption">Closet con espejo</span>
+      </button>
     </div>
-    <div class="insta-follow reveal">
-      <p>¿Quieres ver más proyectos? Próximamente en Instagram.</p>
-      <a href="https://wa.me/19393491440?text=Hola%2C%20quisiera%20ver%20más%20fotos%20de%20proyectos%20completados." target="_blank" rel="noopener" class="btn-ghost-dark">Ver más por WhatsApp →</a>
+
+    <div class="gallery-follow reveal">
+      <p>¿Quieres ver más proyectos parecidos al tuyo?</p>
+      <a href="https://wa.me/19393491440?text=Hola%2C%20quisiera%20ver%20m%C3%A1s%20fotos%20de%20proyectos%20completados." target="_blank" rel="noopener" class="btn-ghost-dark">Ver más por WhatsApp &rarr;</a>
     </div>
   </section>
 
@@ -482,21 +514,5 @@
     </div>
   </div>
 
-  <!-- ── Product Modal ── -->
-  <div id="productModal" class="modal-backdrop">
-    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">&#x2715;</button>
-    <div class="modal-box">
-      <div class="modal-img-wrap">
-        <img id="modalImg" src="" alt="">
-        <span id="modalBadge" class="modal-badge"></span>
-      </div>
-      <div class="modal-info">
-        <h2 id="modalName"></h2>
-        <p id="modalDesc"></p>
-        <ul id="modalBenefits" class="modal-benefits"></ul>
-        <a id="modalCta" href="#" class="modal-cta" target="_blank" rel="noopener">Cotizar por WhatsApp →</a>
-      </div>
-    </div>
-  </div>
 </body>
 </html>

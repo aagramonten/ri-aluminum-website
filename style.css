@@ -294,30 +294,32 @@ img { max-width: 100%; display: block; }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 1.1rem;
-  max-width: 1100px;
+  max-width: 1010px;
   margin: 0 auto;
 }
 .category-card {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  min-height: 440px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   transition: var(--transition);
 }
-.category-body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .6rem;
-  padding: 1.6rem 1.5rem;
-  flex: 1;
+.category-card:hover {
+  border-color: rgba(0,0,0,.16);
+  box-shadow: 0 18px 44px rgba(0,0,0,.07);
+  transform: translateY(-4px);
 }
-/* Wide on a desktop card, a column beside the copy on a phone. */
-.category-photo { order: -1; flex: none; min-height: 0; aspect-ratio: 16 / 10; background: var(--border); }
+/* The photo fills the whole card; the copy floats over it behind a veil
+   thin enough to read the picture through. */
+.category-photo { position: absolute; inset: 0; z-index: 0; background: var(--border); }
 .category-photo img {
   width: 100%;
   height: 100%;
@@ -325,28 +327,37 @@ img { max-width: 100%; display: block; }
   object-position: var(--focus, center);
   transition: transform .45s ease;
 }
-/* A narrow column crops hard — aim each photo at its own subject. */
-[data-cat="puertas"]    .category-photo { --focus: 80% center; }
-[data-cat="ventanas"]   .category-photo { --focus: 55% center; }
-[data-cat="closets"]    .category-photo { --focus: center; }
-[data-cat="barandales"] .category-photo { --focus: 42% center; }
-.category-card:hover .category-photo img { transform: scale(1.05); }
-.category-card:hover {
-  border-color: rgba(0,0,0,.16);
-  box-shadow: 0 18px 44px rgba(0,0,0,.07);
-  transform: translateY(-4px);
+.category-card:hover .category-photo img { transform: scale(1.04); }
+/* A narrow crop cuts hard — aim each photo at its own subject. */
+[data-cat="puertas"]        .category-photo { --focus: 80% center; }
+[data-cat="puertas-madera"] .category-photo { --focus: 55% center; }
+[data-cat="ventanas"]       .category-photo { --focus: 55% center; }
+[data-cat="closets"]        .category-photo { --focus: center; }
+[data-cat="barandales"]     .category-photo { --focus: 42% center; }
+
+.category-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .55rem;
+  padding: 1.5rem 1.4rem;
+  background: linear-gradient(to top, rgba(255,255,255,.88), rgba(255,255,255,.78) 65%, rgba(255,255,255,.62));
+  backdrop-filter: blur(7px) saturate(1.05);
+  -webkit-backdrop-filter: blur(7px) saturate(1.05);
 }
 .category-icon {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border: 1px solid var(--border);
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0,0,0,.14);
   border-radius: 50%;
   color: var(--primary-dark);
-  margin-bottom: .35rem;
+  margin-bottom: .3rem;
 }
-.category-icon svg { width: 22px; height: 22px; }
+.category-icon svg { width: 21px; height: 21px; }
 .category-card h3 {
   font-family: 'Cormorant', serif;
   font-weight: 500;
@@ -598,9 +609,12 @@ img { max-width: 100%; display: block; }
 
   /* One category per row reads better than two cramped columns. */
   .category-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .category-card { display: grid; grid-template-columns: 1fr 34%; }
-  .category-body { padding: 1.4rem 1.2rem; }
-  .category-photo { order: 0; aspect-ratio: auto; height: 100%; }
+  .category-card { display: block; min-height: 0; }
+  .category-body {
+    width: 68%;
+    padding: 1.4rem 1.2rem;
+    background: linear-gradient(to right, rgba(255,255,255,.9), rgba(255,255,255,.8) 70%, rgba(255,255,255,.62));
+  }
   .category-card h3 { font-size: 1.55rem; }
   .category-card p { font-size: .88rem; }
 

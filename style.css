@@ -331,7 +331,7 @@ img { max-width: 100%; display: block; }
 /* A narrow crop cuts hard — aim each photo at its own subject. */
 [data-cat="puertas"]        .category-photo { --focus: 80% center; }
 [data-cat="puertas-madera"] .category-photo { --focus: 55% center; }
-[data-cat="ventanas"]       .category-photo { --focus: 55% center; }
+[data-cat="ventanas"]       .category-photo { --focus: 62% center; }
 [data-cat="closets"]        .category-photo { --focus: center; }
 [data-cat="barandales"]     .category-photo { --focus: 42% center; }
 

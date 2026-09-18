@@ -343,19 +343,28 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
   gap: .55rem;
   padding: 1.5rem 1.4rem;
-  background: linear-gradient(to top, rgba(255,255,255,.62), rgba(255,255,255,.5) 65%, rgba(255,255,255,.22));
-  backdrop-filter: blur(14px) saturate(1.05);
-  -webkit-backdrop-filter: blur(14px) saturate(1.05);
+}
+.category-body h3, .category-body p, .category-body ul, .category-body .category-cta {
+  text-shadow:
+    0 0 1px #fff,
+    0 0 2px #fff,
+    0 1px 3px rgba(255,255,255,.95),
+    0 0 10px rgba(255,255,255,.9),
+    0 0 22px rgba(255,255,255,.8),
+    0 0 44px rgba(255,255,255,.65);
 }
 .category-icon {
   display: grid;
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(0,0,0,.14);
+  border: 1px solid rgba(0,0,0,.12);
   border-radius: 50%;
   color: var(--primary-dark);
   margin-bottom: .3rem;
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .category-icon svg { width: 21px; height: 21px; }
 .category-card h3 {
@@ -622,7 +631,6 @@ img { max-width: 100%; display: block; }
   .category-body {
     width: 68%;
     padding: 1.4rem 1.2rem;
-    background: linear-gradient(to right, rgba(255,255,255,.6), rgba(255,255,255,.48) 70%, rgba(255,255,255,.18));
   }
   .category-card h3 { font-size: 1.55rem; }
   .category-card p { font-size: .88rem; }

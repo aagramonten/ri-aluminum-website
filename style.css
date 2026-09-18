@@ -343,7 +343,7 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
   gap: .55rem;
   padding: 1.5rem 1.4rem;
-  background: linear-gradient(to top, rgba(255,255,255,.95), rgba(255,255,255,.88) 65%, rgba(255,255,255,.74));
+  background: linear-gradient(to top, rgba(255,255,255,.99), rgba(255,255,255,.95) 65%, rgba(255,255,255,.85));
   backdrop-filter: blur(7px) saturate(1.05);
   -webkit-backdrop-filter: blur(7px) saturate(1.05);
 }
@@ -622,7 +622,7 @@ img { max-width: 100%; display: block; }
   .category-body {
     width: 68%;
     padding: 1.4rem 1.2rem;
-    background: linear-gradient(to right, rgba(255,255,255,.96), rgba(255,255,255,.88) 70%, rgba(255,255,255,.72));
+    background: linear-gradient(to right, rgba(255,255,255,.99), rgba(255,255,255,.95) 70%, rgba(255,255,255,.84));
   }
   .category-card h3 { font-size: 1.55rem; }
   .category-card p { font-size: .88rem; }

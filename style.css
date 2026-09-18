@@ -229,7 +229,7 @@ img { max-width: 100%; display: block; }
 
 .quote-content .badge {
   background: rgba(37,211,102,.16);
-  color: var(--green);
+  color: #0b6b38;
   padding: 6px 14px;
   border-radius: 20px;
   font-weight: 700;
@@ -485,6 +485,15 @@ img { max-width: 100%; display: block; }
 .final-cta { padding: 6rem 5%; text-align: center; background: linear-gradient(135deg, #fff, var(--light)); }
 .final-cta h2 { font-family: 'Cormorant', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 400; letter-spacing: -.03em; }
 .final-cta p { margin: .8rem auto 1.8rem; }
+.mini-eyebrow {
+  display: block;
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  font-size: .75rem;
+  color: var(--primary-dark);
+}
 .footer { background: #000; color: #fff; padding: 4rem 5%; text-align: center; }
 .footer-logo-img { height: 80px; margin: 0 auto 1rem; opacity: .45; }
 .footer-tagline {
@@ -887,9 +896,11 @@ img { max-width: 100%; display: block; }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .wa-bubble-close {
-  position: absolute; top: 8px; right: 10px;
+  position: absolute; top: 0; right: 0;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
   background: none; border: none; cursor: pointer;
-  color: #999; font-size: 16px; line-height: 1;
+  color: #999; font-size: 15px; line-height: 1;
 }
 .wa-bubble-close:hover { color: #333; }
 .wa-bubble-avatar {

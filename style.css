@@ -264,99 +264,128 @@ img { max-width: 100%; display: block; }
 .section-center p { margin-inline: auto; }
 
 .category-grid {
+  counter-reset: cat;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1.1rem;
-  max-width: 1010px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.75rem 1.5rem;
+  max-width: 1240px;
   margin: 0 auto;
 }
+/* Catalog plate: clean photo on top, every letter below it on the flat
+   background — the hero's photo-band-plus-caption grammar, extended. */
 .category-card {
-  position: relative;
-  isolation: isolate;
+  counter-increment: cat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 440px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
   transition: var(--transition);
 }
-.category-card:hover {
-  border-color: rgba(0,0,0,.16);
-  box-shadow: 0 18px 44px rgba(0,0,0,.07);
-  transform: translateY(-4px);
+.category-card:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
+.category-photo {
+  order: -1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--border);
 }
-/* The photo fills the whole card; the copy floats over it behind a veil
-   thin enough to read the picture through. */
-.category-photo { position: absolute; inset: 0; z-index: 0; background: var(--border); }
 .category-photo img {
   width: 100%;
-  height: 100%;
+  height: 380px;
   object-fit: cover;
   object-position: var(--focus, center);
+  display: block;
   transition: transform .45s ease;
 }
 .category-card:hover .category-photo img { transform: scale(1.04); }
-/* A narrow crop cuts hard — aim each photo at its own subject. */
+@media (prefers-reduced-motion: reduce) {
+  .category-card:hover .category-photo img { transform: none; }
+}
+/* Aim each crop at its subject; the vertical roble needs a two-axis focus. */
 [data-cat="puertas"]        .category-photo { --focus: 80% center; }
-[data-cat="puertas-madera"] .category-photo { --focus: 55% center; }
+[data-cat="puertas-madera"] .category-photo { --focus: 55% 30%; }
 [data-cat="ventanas"]       .category-photo { --focus: 62% center; }
 [data-cat="closets"]        .category-photo { --focus: center; }
 [data-cat="barandales"]     .category-photo { --focus: 42% center; }
 
 .category-body {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .55rem;
-  padding: 1.5rem 1.4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  align-items: baseline;
+  border-top: 1px solid var(--border);
+  margin-top: .95rem;
+  padding-top: .85rem;
 }
-
+/* Plate index, 01-05, with the bare icon as its counterweight. */
+.category-body::before {
+  content: counter(cat, decimal-leading-zero);
+  grid-column: 1;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #5a6268;
+  margin-bottom: .55rem;
+}
 .category-icon {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  color: #5a6268;
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 50%;
-  color: var(--primary-dark);
-  margin-bottom: .3rem;
-  background: rgba(255,255,255,.72);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
-.category-icon svg { width: 21px; height: 21px; }
+.category-icon svg { width: 18px; height: 18px; }
 .category-card h3 {
+  grid-column: 1;
+  grid-row: 2;
   font-family: 'Cormorant', serif;
   font-weight: 500;
-  font-size: 1.85rem;
-  line-height: 1.1;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  text-decoration: underline transparent;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color .25s ease;
 }
-.category-card p { color: var(--dark); line-height: 1.6; font-size: .95rem; }
-.category-card ul {
-  list-style: none;
-  display: grid;
-  gap: .3rem;
-  margin: .35rem 0 .9rem;
-  font-size: .88rem;
-  color: var(--dark);
-}
-.category-card li::before { content: "·"; margin-right: .5rem; color: var(--dark); }
+.category-card:hover h3 { text-decoration-color: var(--dark); }
 .category-cta {
-  margin-top: auto;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  align-self: baseline;
   font-weight: 700;
-  font-size: .82rem;
-  letter-spacing: 1.2px;
+  font-size: .76rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--primary-dark);
 }
 .category-cta em { font-style: normal; display: inline-block; transition: var(--transition); }
 .category-card:hover .category-cta em { transform: translateX(4px); }
+.category-card p {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: .9rem;
+  max-width: 46ch;
+  margin-top: .55rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* The three bullets collapse into one uppercase metadata line. */
+.category-card ul {
+  grid-column: 1 / -1;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .55rem;
+  margin-top: .7rem;
+  font-size: .72rem;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #5a6268;
+}
+.category-card li + li::before { content: "·"; margin-right: .55rem; }
 
 /* --- AGENDA Y CALENDARIO MODERNO --- */
 .appointment-section {
@@ -546,15 +575,10 @@ img { max-width: 100%; display: block; }
   .modern-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
   .form-row-2 { grid-template-columns: 1fr; }
 
-  /* One category per row reads better than two cramped columns. */
-  .category-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .category-card { display: block; min-height: 0; }
-  .category-body {
-    width: 68%;
-    padding: 1.4rem 1.2rem;
-  }
+  /* One plate per row; the photo squares up a little. */
+  .category-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .category-photo img { height: auto; aspect-ratio: 4 / 3; }
   .category-card h3 { font-size: 1.55rem; }
-  .category-card p { font-size: .88rem; }
 
 
   .section-center { margin-bottom: 2rem; }

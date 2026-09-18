@@ -343,9 +343,9 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
   gap: .55rem;
   padding: 1.5rem 1.4rem;
-  background: linear-gradient(to top, rgba(255,255,255,.99), rgba(255,255,255,.95) 65%, rgba(255,255,255,.85));
-  backdrop-filter: blur(7px) saturate(1.05);
-  -webkit-backdrop-filter: blur(7px) saturate(1.05);
+  background: linear-gradient(to top, rgba(255,255,255,.62), rgba(255,255,255,.5) 65%, rgba(255,255,255,.22));
+  backdrop-filter: blur(14px) saturate(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.05);
 }
 .category-icon {
   display: grid;
@@ -364,16 +364,16 @@ img { max-width: 100%; display: block; }
   font-size: 1.85rem;
   line-height: 1.1;
 }
-.category-card p { color: var(--muted); line-height: 1.6; font-size: .95rem; }
+.category-card p { color: #453f39; line-height: 1.6; font-size: .95rem; }
 .category-card ul {
   list-style: none;
   display: grid;
   gap: .3rem;
   margin: .35rem 0 .9rem;
   font-size: .88rem;
-  color: #4d463f;
+  color: #3c3731;
 }
-.category-card li::before { content: "·"; margin-right: .5rem; color: var(--muted); }
+.category-card li::before { content: "·"; margin-right: .5rem; color: #6a635b; }
 .category-cta {
   margin-top: auto;
   font-weight: 700;
@@ -622,7 +622,7 @@ img { max-width: 100%; display: block; }
   .category-body {
     width: 68%;
     padding: 1.4rem 1.2rem;
-    background: linear-gradient(to right, rgba(255,255,255,.99), rgba(255,255,255,.95) 70%, rgba(255,255,255,.84));
+    background: linear-gradient(to right, rgba(255,255,255,.6), rgba(255,255,255,.48) 70%, rgba(255,255,255,.18));
   }
   .category-card h3 { font-size: 1.55rem; }
   .category-card p { font-size: .88rem; }

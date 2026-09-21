@@ -126,6 +126,21 @@ async function handleSubmit(event) {
 setMinDate();
 setupScheduler();
 
+// On small screens, hide the floating shortcuts while either form is visible
+// so they never cover the scheduler or its action buttons.
+const formSectionsInView = new Set();
+const formVisibilityObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) formSectionsInView.add(entry.target);
+    else formSectionsInView.delete(entry.target);
+  });
+  document.body.classList.toggle('form-section-visible', formSectionsInView.size > 0);
+}, { threshold: 0.08 });
+
+document.querySelectorAll('#appointment, #estimate').forEach((section) => {
+  formVisibilityObserver.observe(section);
+});
+
 // ── WhatsApp Greeting Bubble ──────────────────────────────────────
 (function () {
   const bubble = document.getElementById('waBubble');

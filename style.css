@@ -288,9 +288,20 @@ img { max-width: 100%; display: block; }
   padding: 3.5rem 5%;
   background: var(--ink);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.1rem;
 }
+
+/* --- PREGUNTAS FRECUENTES --- */
+.faq-section { padding: clamp(3.5rem, 8vw, 6rem) 5%; background: #fff; color: var(--dark); }
+.faq-list { max-width: 860px; margin: 0 auto; border-top: 1px solid var(--border); }
+.faq-list details { border-bottom: 1px solid var(--border); }
+.faq-list summary { position: relative; padding: 1.25rem 2.5rem 1.25rem 0; cursor: pointer; list-style: none; font-weight: 700; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; position: absolute; right: .25rem; top: 1rem; font-size: 1.5rem; font-weight: 400; color: var(--green-dark); }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { padding: 0 2.5rem 1.25rem 0; color: var(--muted); line-height: 1.7; }
+.faq-list summary:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 4px; }
 .trust-item {
   background: var(--panel);
   border: 1px solid var(--line-dark);

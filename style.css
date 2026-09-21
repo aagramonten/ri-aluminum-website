@@ -19,7 +19,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Manrope', sans-serif;
   background: var(--ink);
   color: var(--dark);
   overflow-x: hidden;
@@ -46,7 +46,7 @@ img { max-width: 100%; display: block; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a {
   font-size: .78rem;
-  letter-spacing: 2px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   font-weight: 700;
   color: rgba(255,255,255,.88);
@@ -101,17 +101,17 @@ img { max-width: 100%; display: block; }
   gap: 1rem;
   font-size: .72rem;
   font-weight: 700;
-  letter-spacing: 2.4px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: rgba(255,255,255,.92);
 }
 .hero-word {
   margin: .5rem 0 0;
-  font-family: 'Archivo', 'Jost', sans-serif;
-  font-weight: 900;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
   font-size: clamp(3rem, 11.6vw, 10.5rem);
   line-height: .92;
-  letter-spacing: .01em;
+  letter-spacing: -.045em;
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
@@ -154,11 +154,11 @@ img { max-width: 100%; display: block; }
 }
 .hero-order:hover { background: #fff; color: #0c0c0c; }
 .hero-claims {
-  font-family: 'Archivo', 'Jost', sans-serif;
-  font-weight: 900;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   line-height: 1.08;
-  letter-spacing: .01em;
+  letter-spacing: -.025em;
   text-transform: uppercase;
   text-align: right;
   text-shadow: 0 2px 24px rgba(0,0,0,.3);
@@ -170,7 +170,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1.2rem;
   color: var(--primary-dark);
   text-transform: uppercase;
-  letter-spacing: 2.6px;
+  letter-spacing: 1.5px;
   font-weight: 700;
   font-size: .78rem;
 }
@@ -180,11 +180,10 @@ img { max-width: 100%; display: block; }
   background: var(--primary-dark);
 }
 .section-h2 {
-  font-family: 'Archivo', 'Jost', sans-serif;
-  font-weight: 900;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
   line-height: 1.0;
-  letter-spacing: .01em;
-  text-transform: uppercase;
+  letter-spacing: -.03em;
 }
 .section-h2 em { color: var(--green); font-style: normal; }
 .btn-primary, .btn-light, .submit-btn {
@@ -231,9 +230,8 @@ img { max-width: 100%; display: block; }
 }
 
 .quote-content h2 {
-  font-family: 'Archivo', 'Jost', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   margin: 15px 0;
   line-height: 1.05;
@@ -306,10 +304,10 @@ img { max-width: 100%; display: block; }
 }
 .trust-item strong {
   display: block;
-  font-family: 'Archivo', 'Jost', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: .02em;
   font-size: .92rem;
   color: #fff;
   margin-bottom: .5rem;
@@ -399,10 +397,9 @@ img { max-width: 100%; display: block; }
 .category-card h3 {
   grid-column: 1;
   grid-row: 2;
-  font-family: 'Archivo', 'Jost', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: -.01em;
   color: #fff;
   font-size: 1.05rem;
   line-height: 1.2;
@@ -535,7 +532,7 @@ img { max-width: 100%; display: block; }
 .c-label { color: rgba(255,255,255,.5); font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; }
 .c-val { color: #fff; }
 .quote-form { background: #fff; color: var(--dark); padding: 2.2rem; border-radius: var(--radius); }
-.form-title { font-family: 'Archivo', 'Jost', sans-serif; font-weight: 900; text-transform: uppercase; font-size: 1.45rem; margin-bottom: 1.3rem; }
+.form-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 1.45rem; letter-spacing: -.02em; margin-bottom: 1.3rem; }
 .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { margin-bottom: 1rem; }
 .form-group label { display: block; font-weight: 700; margin-bottom: .45rem; }
@@ -545,13 +542,13 @@ img { max-width: 100%; display: block; }
 
 /* --- FOOTER & CTA FINAL --- */
 .final-cta { padding: 6rem 5%; text-align: center; background: var(--ink); color: #fff; }
-.final-cta h2 { font-family: 'Archivo', 'Jost', sans-serif; font-weight: 900; text-transform: uppercase; font-size: clamp(1.9rem, 4.6vw, 3.4rem); line-height: 1.02; }
+.final-cta h2 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4.6vw, 3.4rem); letter-spacing: -.035em; line-height: 1.05; }
 .final-cta p { margin: .8rem auto 1.8rem; }
 .mini-eyebrow {
   display: block;
   margin-bottom: 1.1rem;
   text-transform: uppercase;
-  letter-spacing: 2.6px;
+  letter-spacing: 1.5px;
   font-weight: 700;
   font-size: .75rem;
   color: var(--green);
@@ -560,7 +557,7 @@ img { max-width: 100%; display: block; }
 .footer-logo-img { height: 80px; margin: 0 auto 1rem; opacity: .45; }
 .footer-tagline {
   color: rgba(255,255,255,.9);
-  letter-spacing: 3px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   font-size: .72rem;
   font-weight: 700;
@@ -624,7 +621,7 @@ img { max-width: 100%; display: block; }
      stack at the bottom over the darker scrim. */
   .hero { min-height: calc(100svh - 68px); padding: 1.2rem 1rem 6.5rem; }
   .hero-bg { object-position: 68% 40%; }
-  .hero-top { font-size: .56rem; letter-spacing: 1.6px; }
+  .hero-top { font-size: .56rem; letter-spacing: 1px; }
   .hero-word { font-size: 12.5vw; }
   .hero-bottom { flex-direction: column; align-items: stretch; gap: 1.5rem; }
   .hero-claims { text-align: left; font-size: 1.45rem; }
@@ -793,10 +790,10 @@ img { max-width: 100%; display: block; }
 .ba-heading {
   text-align: center;
   margin-bottom: 1rem;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: .75rem;
-  letter-spacing: 2.4px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
   color: rgba(255,255,255,.6);
 }

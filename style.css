@@ -668,11 +668,11 @@ img { max-width: 100%; display: block; }
 
   .section-center { margin-bottom: 2rem; }
 
-  .whatsapp-float span { display: none; }
-  .whatsapp-float { width: 58px; height: 58px; padding: 0; justify-content: center; }
+  .whatsapp-float,
+  .wa-bubble { display: none !important; }
 
-  /* Leave room under the last row of links for the two floating buttons. */
-  .footer { padding-bottom: 7rem; }
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
+  .footer { padding-bottom: 4rem; }
 }
 /* ── Lightbox ──────────────────────────────────────────────────── */
 .modal-backdrop {
@@ -891,29 +891,42 @@ img { max-width: 100%; display: block; }
 }
 .btn-ghost-dark:hover { background: #fff; color: #0c0e10; border-color: #fff; }
 
-/* ── Floating Call Button (mobile only) ─────────────────────────── */
-.float-call {
+/* ── Mobile Contact Bar ─────────────────────────────────────────── */
+.mobile-contact-bar {
   display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 18px;
-  background: #fff;
-  color: #0c0e10;
-  border-radius: 50px;
-  padding: 0.65rem 1.1rem;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-  z-index: 900;
-  transition: background 0.2s;
 }
-.float-call svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
-.float-call:hover { background: var(--green); }
 @media (max-width: 768px) {
-  .float-call { display: flex; bottom: 20px; right: auto; left: 18px; }
+  .mobile-contact-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .65rem;
+    min-height: 70px;
+    padding: .65rem 1rem calc(.65rem + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.98);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -8px 30px rgba(0,0,0,.1);
+  }
+  .mobile-contact-bar a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .7rem 1rem;
+    border: 1px solid var(--dark);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .mobile-contact-bar svg { width: 20px; height: 20px; flex: 0 0 auto; }
+  .mobile-call { color: var(--dark); background: #fff; }
+  .mobile-whatsapp { color: #fff; background: var(--whatsapp); border-color: var(--whatsapp) !important; }
+  .mobile-whatsapp svg { fill: currentColor; }
 }
 
 /* ── WhatsApp Greeting Bubble ────────────────────────────────────── */
@@ -1182,11 +1195,4 @@ body { background: #fff; color: var(--dark); }
     opacity: 1;
   }
 
-  body.form-section-visible .float-call,
-  body.form-section-visible .whatsapp-float,
-  body.form-section-visible .wa-bubble {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(12px);
-  }
 }

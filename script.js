@@ -208,20 +208,29 @@ function dismissBubble() {
 }
 
 // ── Gallery Modal ─────────────────────────────────────────────────
-function openGalleryModal(src, caption) {
+let lastGalleryTrigger = null;
+
+function openGalleryModal(src, caption, trigger) {
   const modal = document.getElementById('galleryModal');
   const source = document.getElementById('galleryModalSource');
   const webpBase = src.replace(/\.(jpe?g|png)$/i, '');
+  lastGalleryTrigger = trigger || document.activeElement;
   if (source) source.srcset = `${webpBase}-600.webp 600w, ${webpBase}-1200.webp 1200w`;
   document.getElementById('galleryModalImg').src = src;
   document.getElementById('galleryModalCaption').textContent = caption;
   modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  modal.querySelector('.modal-close')?.focus();
 }
 
 function closeGalleryModal() {
-  document.getElementById('galleryModal').classList.remove('active');
+  const modal = document.getElementById('galleryModal');
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  lastGalleryTrigger?.focus();
+  lastGalleryTrigger = null;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -232,6 +241,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeGalleryModal();
+    if (!gModal?.classList.contains('active')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeGalleryModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusable = [...gModal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => !element.hasAttribute('disabled'));
+      if (!focusable.length) {
+        e.preventDefault();
+        gModal.focus();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 });

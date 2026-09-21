@@ -113,6 +113,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <nav class="navbar sticky">
     <a href="#inicio" aria-label="RI Aluminum inicio">
       <img src="images/ri-logo-dark.png" width="595" height="303" alt="RI Aluminum" class="logo-img" loading="lazy" decoding="async" />
@@ -131,6 +132,7 @@
     </ul>
   </nav>
 
+  <main id="main-content">
   <header id="inicio" class="hero">
     <img class="hero-bg" src="images/hero-puerta-principal.webp" width="943" height="1215" fetchpriority="high" alt="Puerta principal de madera fabricada e instalada por RI Aluminum en Puerto Rico" />
 
@@ -151,12 +153,12 @@
 
   <div class="ticker-bar">
     <div class="ticker-track">
-      <div class="ticker-item"><span class="ticker-dot"></span>Puertas de Interior & Exterior</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Ventanas & Cristales Fijos</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Barandales de Cristal</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Closets a la Medida</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Visitas por cita</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Garantía en Materiales</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Puertas de Interior & Exterior</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Ventanas & Cristales Fijos</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Barandales de Cristal</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Closets a la Medida</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Visitas por cita</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Garantía en Materiales</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Puertas de Interior & Exterior</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Ventanas & Cristales Fijos</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Barandales de Cristal</div>
@@ -188,7 +190,7 @@
         <h2>¿Tienes la idea? <br><em>Cotizamos rápido.</em></h2>
         <p>Envíanos una foto de tu espacio actual por WhatsApp y te orientamos sobre las mejores opciones de diseño y materiales sin que tengas que esperar a una visita.</p>
         <a class="btn-whatsapp-modern" href="https://wa.me/19393491440?text=Hola%2C%20quiero%20enviar%20fotos%20para%20cotizar%20un%20proyecto." target="_blank" rel="noopener">
-          <span class="icon">📸</span> Enviar fotos ahora
+          <span class="icon" aria-hidden="true">📸</span> Enviar fotos ahora
         </a>
       </div>
     </div>
@@ -353,51 +355,51 @@
     </div>
 
     <div class="gallery-grid">
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-moderna.jpg','Puerta moderna con cristal')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-moderna.jpg','Puerta moderna con cristal', this)">
         <picture><source type="image/webp" srcset="images/products/puerta-moderna-600.webp 600w, images/products/puerta-moderna-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/puerta-moderna.jpg" width="1122" height="1402" alt="Puerta moderna con cristal — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Puerta moderna con cristal</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-cristal.jpg','Puerta exterior de cristal')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-cristal.jpg','Puerta exterior de cristal', this)">
         <picture><source type="image/webp" srcset="images/products/puerta-cristal-600.webp 600w, images/products/puerta-cristal-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/puerta-cristal.jpg" width="1123" height="1401" alt="Puerta exterior de cristal — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Puerta exterior de cristal</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puertas-interior-cristal.jpg','Puertas dobles de interior')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puertas-interior-cristal.jpg','Puertas dobles de interior', this)">
         <picture><source type="image/webp" srcset="images/products/puertas-interior-cristal-600.webp 600w, images/products/puertas-interior-cristal-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/puertas-interior-cristal.jpg" width="1223" height="1286" alt="Puertas dobles de interior — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Puertas dobles de interior</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal.jpg','Barandal de cristal')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal.jpg','Barandal de cristal', this)">
         <picture><source type="image/webp" srcset="images/products/barandal-cristal-600.webp 600w, images/products/barandal-cristal-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/barandal-cristal.jpg" width="1329" height="1183" alt="Barandal de cristal — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Barandal de cristal</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal-noche.jpg','Barandal cristal iluminado')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-cristal-noche.jpg','Barandal cristal iluminado', this)">
         <picture><source type="image/webp" srcset="images/products/barandal-cristal-noche-600.webp 600w, images/products/barandal-cristal-noche-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/barandal-cristal-noche.jpg" width="1312" height="1199" alt="Barandal cristal iluminado — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Barandal cristal iluminado</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-madera-dia.jpg','Barandal aluminio y madera')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-madera-dia.jpg','Barandal aluminio y madera', this)">
         <picture><source type="image/webp" srcset="images/products/barandal-madera-dia-600.webp 600w, images/products/barandal-madera-dia-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/barandal-madera-dia.jpg" width="1279" height="1230" alt="Barandal aluminio y madera — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Barandal aluminio y madera</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/ventana-casement-esmerilado.jpg','Ventana con cristal esmerilado')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/ventana-casement-esmerilado.jpg','Ventana con cristal esmerilado', this)">
         <picture><source type="image/webp" srcset="images/products/ventana-casement-esmerilado-600.webp 600w, images/products/ventana-casement-esmerilado-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/ventana-casement-esmerilado.jpg" width="1370" height="1828" alt="Ventana con cristal esmerilado — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Ventana con cristal esmerilado</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/closet-espejo.jpg','Closet con espejo')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/closet-espejo.jpg','Closet con espejo', this)">
         <picture><source type="image/webp" srcset="images/products/closet-espejo-600.webp 600w, images/products/closet-espejo-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/closet-espejo.jpg" width="1472" height="1834" alt="Closet con espejo — RI Aluminum Puerto Rico" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Closet con espejo</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-vista-mar.jpg','Barandal de cristal frente al mar')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/barandal-vista-mar.jpg','Barandal de cristal frente al mar', this)">
         <picture><source type="image/webp" srcset="images/products/barandal-vista-mar-600.webp 600w, images/products/barandal-vista-mar-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/barandal-vista-mar.jpg" width="1600" height="815" alt="Barandal de cristal con vista al mar instalado por RI Aluminum" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Barandal de cristal frente al mar</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/cabana-negra.jpg','Cabaña moderna')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/cabana-negra.jpg','Cabaña moderna', this)">
         <picture><source type="image/webp" srcset="images/products/cabana-negra-600.webp 600w, images/products/cabana-negra-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/cabana-negra.jpg" width="1200" height="1600" alt="Cabaña moderna con puertas y ventanas a la medida" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Cabaña moderna</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-madera-entrada.jpg','Puerta de madera de entrada')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-madera-entrada.jpg','Puerta de madera de entrada', this)">
         <picture><source type="image/webp" srcset="images/products/puerta-madera-entrada-600.webp 600w, images/products/puerta-madera-entrada-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/puerta-madera-entrada.jpg" width="1200" height="1600" alt="Puerta de madera de entrada instalada por RI Aluminum" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Puerta de madera de entrada</span>
       </button>
-      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-pivotante.jpg','Puerta pivotante de madera')">
+      <button type="button" class="gallery-item reveal" onclick="openGalleryModal('images/products/puerta-pivotante.jpg','Puerta pivotante de madera', this)">
         <picture><source type="image/webp" srcset="images/products/puerta-pivotante-600.webp 600w, images/products/puerta-pivotante-1200.webp 1200w" sizes="(max-width: 720px) 50vw, (max-width: 980px) 33vw, 245px" /><img src="images/products/puerta-pivotante.jpg" width="943" height="1052" alt="Puerta pivotante de madera fabricada e instalada por RI Aluminum" loading="lazy" decoding="async" /></picture>
         <span class="gallery-caption">Puerta pivotante de madera</span>
       </button>
@@ -408,22 +410,22 @@
 
       <div class="ba-grid">
         <div class="ba-pair">
-          <button type="button" class="ba-half" onclick="openGalleryModal('images/antes-puerta.jpg','Puerta de entrada — antes')">
+          <button type="button" class="ba-half" onclick="openGalleryModal('images/antes-puerta.jpg','Puerta de entrada — antes', this)">
             <picture><source type="image/webp" srcset="images/antes-puerta-600.webp 600w, images/antes-puerta-1200.webp 1200w" sizes="(max-width: 720px) 50vw, 245px" /><img src="images/antes-puerta.jpg" width="2136" height="1970" alt="Puerta de entrada antes de la remodelación" loading="lazy" decoding="async" /></picture>
             <span class="ba-tag">Antes</span>
           </button>
-          <button type="button" class="ba-half" onclick="openGalleryModal('images/despues-puerta.jpg','Puerta de entrada — después')">
+          <button type="button" class="ba-half" onclick="openGalleryModal('images/despues-puerta.jpg','Puerta de entrada — después', this)">
             <picture><source type="image/webp" srcset="images/despues-puerta-600.webp 600w, images/despues-puerta-1200.webp 1200w" sizes="(max-width: 720px) 50vw, 245px" /><img src="images/despues-puerta.jpg" width="1692" height="1534" alt="Puerta de entrada moderna instalada por RI Aluminum" loading="lazy" decoding="async" /></picture>
             <span class="ba-tag ba-tag-after">Después</span>
           </button>
         </div>
 
         <div class="ba-pair">
-          <button type="button" class="ba-half" onclick="openGalleryModal('images/antes-closet.jpg','Closet — antes')">
+          <button type="button" class="ba-half" onclick="openGalleryModal('images/antes-closet.jpg','Closet — antes', this)">
             <picture><source type="image/webp" srcset="images/antes-closet-600.webp 600w, images/antes-closet-1200.webp 1200w" sizes="(max-width: 720px) 50vw, 245px" /><img src="images/antes-closet.jpg" width="1122" height="1402" alt="Closet antes de la remodelación" loading="lazy" decoding="async" /></picture>
             <span class="ba-tag">Antes</span>
           </button>
-          <button type="button" class="ba-half" onclick="openGalleryModal('images/despues-closet.jpg','Closet — después')">
+          <button type="button" class="ba-half" onclick="openGalleryModal('images/despues-closet.jpg','Closet — después', this)">
             <picture><source type="image/webp" srcset="images/despues-closet-600.webp 600w, images/despues-closet-1200.webp 1200w" sizes="(max-width: 720px) 50vw, 245px" /><img src="images/despues-closet.jpg" width="1122" height="1402" alt="Closet moderno con espejo instalado por RI Aluminum" loading="lazy" decoding="async" /></picture>
             <span class="ba-tag ba-tag-after">Después</span>
           </button>
@@ -446,19 +448,19 @@
 
         <div class="contact-list">
           <div class="contact-row">
-            <div class="contact-icon-box">📞</div>
+            <div class="contact-icon-box" aria-hidden="true">📞</div>
             <div><div class="c-label">Teléfono 1</div><div class="c-val"><a href="tel:+19393491440">(939) 349-1440</a></div></div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon-box">📞</div>
+            <div class="contact-icon-box" aria-hidden="true">📞</div>
             <div><div class="c-label">Teléfono 2</div><div class="c-val"><a href="tel:+19393230573">(939) 323-0573</a></div></div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon-box wa-icon">💬</div>
+            <div class="contact-icon-box wa-icon" aria-hidden="true">💬</div>
             <div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/19393491440?text=Hola%2C%20me%20interesa%20un%20estimado." target="_blank" rel="noopener">Escribir ahora →</a></div></div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon-box">📍</div>
+            <div class="contact-icon-box" aria-hidden="true">📍</div>
             <div><div class="c-label">Áreas de Servicio</div><div class="c-val">San Juan · Bayamón · Carolina · Ponce · Caguas · Guaynabo · Toda PR</div></div>
           </div>
         </div>
@@ -523,7 +525,7 @@
     </div>
     <div class="reviews-grid reveal">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <p class="review-text">"Excelente trabajo. Instalaron nuestras puertas de aluminio en tiempo récord y con acabado perfecto. Muy profesionales desde la primera visita hasta la instalación."</p>
         <div class="review-author">
           <div class="review-avatar">M</div>
@@ -534,7 +536,7 @@
         </div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <p class="review-text">"Los barandales de cristal quedaron espectaculares en nuestra terraza. Vine por WhatsApp, me orientaron rápido, y en menos de una semana ya estaban instalados."</p>
         <div class="review-author">
           <div class="review-avatar">C</div>
@@ -545,7 +547,7 @@
         </div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <p class="review-text">"Las ventanas nuevas transformaron completamente la casa. El equipo fue puntual, limpio y el precio fue justo. 100% recomendados para cualquier proyecto."</p>
         <div class="review-author">
           <div class="review-avatar">A</div>
@@ -556,7 +558,7 @@
         </div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
         <p class="review-text">"Contratamos RI Aluminum para el closet de nuestra habitación principal. Quedó hermoso, funcional y a un precio razonable. Ya los estoy recomendando a toda la familia."</p>
         <div class="review-author">
           <div class="review-avatar">R</div>
@@ -578,6 +580,7 @@
     <p>Envíanos fotos o agenda una visita. Te orientamos sin compromiso.</p>
     <a class="btn-primary green" href="https://wa.me/19393491440?text=Hola%2C%20quiero%20cotizar%20un%20proyecto.%20Puedo%20enviar%20fotos." target="_blank" rel="noopener">Escribir por WhatsApp</a>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-main">
@@ -608,11 +611,11 @@
 
   <!-- ── WhatsApp Greeting Bubble ── -->
   <div id="waBubble" class="wa-bubble">
-    <button class="wa-bubble-close" onclick="dismissBubble()" aria-label="Cerrar">&#x2715;</button>
+    <button class="wa-bubble-close" onclick="dismissBubble()" aria-label="Cerrar chat de WhatsApp">&#x2715;</button>
     <div class="wa-bubble-avatar">RI</div>
     <div class="wa-bubble-content">
       <div class="wa-bubble-name">RI Aluminum</div>
-      <div class="wa-bubble-msg">👋 ¡Hola! ¿En qué le podemos ayudar hoy? Cotice su proyecto de puertas, ventanas o barandales.</div>
+      <div class="wa-bubble-msg"><span aria-hidden="true">👋</span> ¡Hola! ¿En qué le podemos ayudar hoy? Cotice su proyecto de puertas, ventanas o barandales.</div>
       <a class="wa-bubble-btn" href="https://wa.me/19393491440?text=Hola%2C%20me%20interesa%20un%20estimado." target="_blank" rel="noopener">Escribir por WhatsApp →</a>
     </div>
   </div>
@@ -620,8 +623,8 @@
   <script src="script.js"></script>
 
   <!-- ── Gallery Modal ── -->
-  <div id="galleryModal" class="modal-backdrop">
-    <button class="modal-close" onclick="closeGalleryModal()" aria-label="Cerrar">&#x2715;</button>
+  <div id="galleryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="galleryModalCaption" aria-hidden="true" tabindex="-1">
+    <button class="modal-close" onclick="closeGalleryModal()" aria-label="Cerrar galería">&#x2715;</button>
     <div class="gallery-modal-box">
       <picture class="gallery-modal-picture">
         <source id="galleryModalSource" type="image/webp" srcset="" />

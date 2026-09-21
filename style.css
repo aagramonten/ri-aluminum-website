@@ -7,7 +7,10 @@
   --light: #f8f9fa;
   --muted: #6c757d;
   --border: #e9ecef;
-  --green: #25D366;
+  --green: #A6784F;
+  --green-dark: #805A3A;
+  --whatsapp: #25D366;
+  --whatsapp-dark: #1EBE5D;
   --ink: #0d0f11;
   --panel: #16191c;
   --line-dark: rgba(255,255,255,.12);
@@ -105,18 +108,6 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   color: rgba(255,255,255,.92);
 }
-.hero-word {
-  margin: .5rem 0 0;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(3rem, 11.6vw, 10.5rem);
-  line-height: .92;
-  letter-spacing: -.045em;
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;
-  text-shadow: 0 2px 34px rgba(0,0,0,.25);
-}
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -128,7 +119,7 @@ img { max-width: 100%; display: block; }
 }
 .hero-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   gap: 2rem;
 }
@@ -142,27 +133,19 @@ img { max-width: 100%; display: block; }
 .hero-order {
   display: inline-flex;
   align-items: center;
-  min-height: 52px;
-  padding: 0 1.9rem;
-  background: #0c0c0c;
+  min-height: 44px;
+  padding: 0 1.35rem;
+  background: rgba(255,255,255,.08);
   color: #fff;
-  font-weight: 700;
-  font-size: .78rem;
-  letter-spacing: 2.2px;
+  border: 1px solid rgba(255,255,255,.78);
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: 1.35px;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
   transition: var(--transition);
 }
 .hero-order:hover { background: #fff; color: #0c0c0c; }
-.hero-claims {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  line-height: 1.08;
-  letter-spacing: -.025em;
-  text-transform: uppercase;
-  text-align: right;
-  text-shadow: 0 2px 24px rgba(0,0,0,.3);
-}
 .section-eyebrow {
   display: flex;
   align-items: center;
@@ -200,7 +183,7 @@ img { max-width: 100%; display: block; }
   transition: var(--transition);
 }
 .btn-primary { background: #fff; color: #0c0e10; }
-.btn-primary.green { background: var(--green); color: #fff; }
+.btn-primary.green { background: var(--whatsapp); color: #fff; }
 .btn-primary:hover, .btn-light:hover, .submit-btn:hover { transform: translateY(-3px); }
 .btn-light { background: #fff; border-color: var(--border); color: var(--dark); }
 .disabled { opacity: .55; pointer-events: none; }
@@ -247,7 +230,7 @@ img { max-width: 100%; display: block; }
 }
 
 .quote-content .badge {
-  background: rgba(37,211,102,.14);
+  background: rgba(166,120,79,.14);
   color: var(--green);
   padding: 6px 14px;
   border-radius: 0;
@@ -261,7 +244,7 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--green);
+  background: var(--whatsapp);
   color: white;
   padding: 14px 28px;
   border-radius: 0;
@@ -277,7 +260,7 @@ img { max-width: 100%; display: block; }
 .btn-whatsapp-modern:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
-  background: #20bd5a;
+  background: var(--whatsapp-dark);
 }
 
 
@@ -354,6 +337,11 @@ img { max-width: 100%; display: block; }
   object-position: var(--focus, center);
   display: block;
   transition: transform .45s ease;
+}
+.category-photo-contain img {
+  object-fit: contain;
+  object-position: center;
+  background: #f7f7f5;
 }
 .category-card:hover .category-photo img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) {
@@ -581,7 +569,7 @@ img { max-width: 100%; display: block; }
   gap: .55rem;
   padding: .85rem 1.1rem;
   border-radius: 999px;
-  background: var(--green);
+  background: var(--whatsapp);
   color: #fff;
   box-shadow: 0 18px 40px rgba(37,211,102,.35);
   font-weight: 700;
@@ -617,15 +605,12 @@ img { max-width: 100%; display: block; }
     border-bottom: 1px solid var(--line-dark);
   }
   .nav-links.open { display: flex; }
-  /* Poster hero on a phone: kicker, giant word, then pitch and claims
-     stack at the bottom over the darker scrim. */
+  /* Keep the hero copy light and compact on a phone. */
   .hero { min-height: calc(100svh - 68px); padding: 1.2rem 1rem 6.5rem; }
   .hero-bg { object-position: 68% 40%; }
   .hero-top { font-size: .56rem; letter-spacing: 1px; }
-  .hero-word { font-size: 12.5vw; }
-  .hero-bottom { flex-direction: column; align-items: stretch; gap: 1.5rem; }
-  .hero-claims { text-align: left; font-size: 1.45rem; }
-  .hero-order { width: 100%; justify-content: center; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-order { width: auto; justify-content: center; }
 
   .modern-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
   .form-row-2 { grid-template-columns: 1fr; }
@@ -633,6 +618,7 @@ img { max-width: 100%; display: block; }
   /* One plate per row; the photo squares up a little. */
   .category-grid { grid-template-columns: 1fr; gap: 2.25rem; }
   .category-photo img { height: auto; aspect-ratio: 4 / 3; }
+  .category-photo-contain img { height: min(70vh, 600px); aspect-ratio: auto; }
   .category-card h3 { font-size: 1.55rem; }
 
 
@@ -912,7 +898,7 @@ img { max-width: 100%; display: block; }
 }
 .wa-bubble-close:hover { color: #333; }
 .wa-bubble-avatar {
-  background: #25d366;
+  background: var(--whatsapp);
   color: #fff;
   font-weight: 700;
   font-size: 0.9rem;
@@ -928,7 +914,7 @@ img { max-width: 100%; display: block; }
 .wa-bubble-msg { font-size: 0.82rem; color: #4a4540; line-height: 1.55; margin-bottom: 0.75rem; }
 .wa-bubble-btn {
   display: block;
-  background: #25d366;
+  background: var(--whatsapp);
   color: #fff;
   text-align: center;
   padding: 0.5rem 0.75rem;
@@ -937,7 +923,7 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   text-decoration: none;
 }
-.wa-bubble-btn:hover { background: #1ebe5d; }
+.wa-bubble-btn:hover { background: var(--whatsapp-dark); }
 
 /* ── Gallery Modal ───────────────────────────────────────────────── */
 

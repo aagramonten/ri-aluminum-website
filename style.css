@@ -972,3 +972,108 @@ img { max-width: 100%; display: block; }
   background: #111;
   width: 100%;
 }
+
+/* --- TEMA CLARO --- */
+body { background: #fff; color: var(--dark); }
+
+.navbar {
+  background: rgba(255,255,255,.96);
+  border-bottom-color: rgba(18,18,18,.12);
+}
+.logo-img,
+.footer-logo-img { filter: none; }
+.nav-links a { color: rgba(18,18,18,.88); }
+.nav-cta { border-color: rgba(18,18,18,.65); }
+.hamburger span { background: var(--dark); }
+
+.hero-bg { object-position: 50% 42%; }
+.hero::before {
+  background: linear-gradient(180deg, rgba(10,12,14,.48) 0%, rgba(10,12,14,.14) 34%, rgba(10,12,14,.12) 56%, rgba(10,12,14,.62) 100%);
+}
+
+.ticker-bar,
+.trust-strip,
+.quick-quote-section,
+.categories-section,
+.appointment-section,
+.gallery-section,
+.estimate-section,
+.reviews-section,
+.final-cta,
+.footer { background: #fff; color: var(--dark); }
+
+.ticker-bar { border-bottom: 1px solid var(--border); }
+.ticker-item { color: rgba(18,18,18,.72); }
+.ticker-dot { background: var(--dark); }
+
+.quick-quote-card,
+.trust-item,
+.review-card {
+  background: #f7f7f5;
+  border-color: rgba(18,18,18,.12);
+}
+.quote-content h2,
+.trust-item strong,
+.section-h2,
+.category-card h3,
+.review-name { color: var(--dark); }
+.quote-content p,
+.trust-item p,
+.section-center p,
+.appointment-copy p,
+.estimate-left p,
+.final-cta p,
+.category-card p,
+.review-text { color: rgba(18,18,18,.66); }
+.category-card ul,
+.review-location,
+.gallery-follow p,
+.footer-services,
+.footer-copyright { color: rgba(18,18,18,.52); }
+
+.section-eyebrow { color: rgba(18,18,18,.62); }
+.section-eyebrow span { background: rgba(18,18,18,.4); }
+.category-body { border-top-color: rgba(18,18,18,.16); }
+.category-icon { color: rgba(18,18,18,.55); }
+.category-card:focus-visible { outline-color: var(--dark); }
+.category-card:hover h3 { text-decoration-color: var(--dark); }
+.category-photo,
+.gallery-item,
+.ba-half { background: #f1f1ef; }
+
+.appointment-section { color: var(--dark); }
+.appointment-list { color: rgba(18,18,18,.75); }
+.scheduler-card {
+  border: 1px solid rgba(18,18,18,.1);
+  box-shadow: 0 20px 55px rgba(0,0,0,.1);
+}
+
+.estimate-section { color: var(--dark); }
+.contact-icon-box { background: rgba(18,18,18,.06); }
+.c-label { color: rgba(18,18,18,.52); }
+.c-val { color: var(--dark); }
+.quote-form { background: #f7f7f5; }
+.submit-btn { background: var(--dark); color: #fff; }
+
+.review-card:hover { border-color: rgba(18,18,18,.28); }
+.ba-heading { color: rgba(18,18,18,.6); }
+.ba-pair { background: #fff; }
+.btn-ghost-dark { border-color: rgba(18,18,18,.65); color: var(--dark); }
+.btn-ghost-dark:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+
+.final-cta { border-top: 1px solid var(--border); }
+.footer { border-top: 1px solid var(--border); }
+.footer-logo-img { opacity: .7; }
+.footer-tagline { color: rgba(18,18,18,.9); }
+.footer-links { color: rgba(18,18,18,.78); }
+
+.gallery-modal-box { background: #fff; }
+.gallery-modal-caption { background: #fff; color: var(--dark); }
+
+@media (max-width: 720px) {
+  .nav-links {
+    background: rgba(255,255,255,.98);
+    border-bottom-color: rgba(18,18,18,.12);
+  }
+  .hero-bg { object-position: 50% 40%; }
+}

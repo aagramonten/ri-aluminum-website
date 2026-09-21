@@ -114,12 +114,12 @@
 
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
-  <nav class="navbar sticky">
+  <nav class="navbar sticky" aria-label="Navegación principal">
     <a href="#inicio" aria-label="RI Aluminum inicio">
       <img src="images/ri-logo-dark.png" width="595" height="303" alt="RI Aluminum" class="logo-img" loading="lazy" decoding="async" />
     </a>
 
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
+    <button type="button" class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
 
@@ -153,14 +153,14 @@
 
   <div class="ticker-bar">
     <div class="ticker-track">
-      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Puertas de Interior & Exterior</div>
-      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Ventanas & Cristales Fijos</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Puertas de Interior &amp; Exterior</div>
+      <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Ventanas &amp; Cristales Fijos</div>
       <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Barandales de Cristal</div>
       <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Closets a la Medida</div>
       <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Visitas por cita</div>
       <div class="ticker-item" aria-hidden="true"><span class="ticker-dot"></span>Garantía en Materiales</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Puertas de Interior & Exterior</div>
-      <div class="ticker-item"><span class="ticker-dot"></span>Ventanas & Cristales Fijos</div>
+      <div class="ticker-item"><span class="ticker-dot"></span>Puertas de Interior &amp; Exterior</div>
+      <div class="ticker-item"><span class="ticker-dot"></span>Ventanas &amp; Cristales Fijos</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Barandales de Cristal</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Closets a la Medida</div>
       <div class="ticker-item"><span class="ticker-dot"></span>Visitas por cita</div>
@@ -657,7 +657,7 @@
 
   <!-- ── WhatsApp Greeting Bubble ── -->
   <div id="waBubble" class="wa-bubble">
-    <button class="wa-bubble-close" onclick="dismissBubble()" aria-label="Cerrar chat de WhatsApp">&#x2715;</button>
+    <button type="button" class="wa-bubble-close" onclick="dismissBubble()" aria-label="Cerrar chat de WhatsApp">&#x2715;</button>
     <div class="wa-bubble-avatar">RI</div>
     <div class="wa-bubble-content">
       <div class="wa-bubble-name">RI Aluminum</div>
@@ -669,12 +669,12 @@
   <script src="script.js"></script>
 
   <!-- ── Gallery Modal ── -->
-  <div id="galleryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="galleryModalCaption" aria-hidden="true" tabindex="-1">
-    <button class="modal-close" onclick="closeGalleryModal()" aria-label="Cerrar galería">&#x2715;</button>
+  <div id="galleryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="galleryModalCaption" tabindex="-1" inert>
+    <button type="button" class="modal-close" onclick="closeGalleryModal()" aria-label="Cerrar galería">&#x2715;</button>
     <div class="gallery-modal-box">
       <picture class="gallery-modal-picture">
-        <source id="galleryModalSource" type="image/webp" srcset="" />
-        <img id="galleryModalImg" src="" width="1200" height="1200" alt="" loading="lazy" decoding="async" />
+        <source id="galleryModalSource" type="image/webp" />
+        <img id="galleryModalImg" src="images/hero-puerta-principal.webp" width="1200" height="1200" alt="" loading="lazy" decoding="async" />
       </picture>
       <div class="gallery-modal-caption" id="galleryModalCaption"></div>
     </div>

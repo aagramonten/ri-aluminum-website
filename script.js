@@ -204,7 +204,7 @@ function openGalleryModal(src, caption, trigger) {
   document.getElementById('galleryModalImg').src = src;
   document.getElementById('galleryModalCaption').textContent = caption;
   modal.classList.add('active');
-  modal.setAttribute('aria-hidden', 'false');
+  modal.removeAttribute('inert');
   document.body.style.overflow = 'hidden';
   modal.querySelector('.modal-close')?.focus();
 }
@@ -212,7 +212,7 @@ function openGalleryModal(src, caption, trigger) {
 function closeGalleryModal() {
   const modal = document.getElementById('galleryModal');
   modal.classList.remove('active');
-  modal.setAttribute('aria-hidden', 'true');
+  modal.setAttribute('inert', '');
   document.body.style.overflow = '';
   lastGalleryTrigger?.focus();
   lastGalleryTrigger = null;

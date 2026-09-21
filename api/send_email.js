@@ -53,8 +53,6 @@ export default async function handler(req, res) {
   const phone            = clean(body.phone);
   const product_interest = clean(body.product_interest);
   const message          = clean(body.message);
-  const preferred_date   = clean(body.preferred_date);
-  const preferred_time   = clean(body.preferred_time);
 
   // Validation
   if (!name) return res.status(400).json({ success: false, message: 'El nombre es requerido.' });
@@ -99,8 +97,6 @@ export default async function handler(req, res) {
         ${row('Teléfono', `<a href="tel:${phone}" style="color:#151210;text-decoration:none;">${phone}</a>`)}
         ${row('Correo Electrónico', email ? `<a href="mailto:${email}" style="color:#151210;text-decoration:none;">${email}</a>` : 'No provisto')}
         ${row('Producto de Interés', productLabel)}
-        ${preferred_date ? row('Fecha Preferida', preferred_date) : ''}
-        ${preferred_time ? row('Horario Preferido', preferred_time) : ''}
         <tr>
           <td style="padding:12px 0;">
             <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9a6f3a;">Mensaje / Medidas</span><br>

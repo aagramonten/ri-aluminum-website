@@ -20,12 +20,10 @@ let selectedAppointmentTime = '';
 
 function setMinDate() {
   const dateInput = document.getElementById('appointmentDate');
-  const formDateInput = document.getElementById('preferredDateForm');
   const today = new Date();
   today.setDate(today.getDate() + 1);
   const minDate = today.toISOString().split('T')[0];
   if (dateInput) dateInput.min = minDate;
-  if (formDateInput) formDateInput.min = minDate;
 }
 
 function formatDate(dateString) {
@@ -68,22 +66,6 @@ function setupScheduler() {
       updateAppointmentSummary();
     });
   });
-}
-
-function copyAppointmentToForm() {
-  const dateInput = document.getElementById('appointmentDate');
-  const formDateInput = document.getElementById('preferredDateForm');
-  const formTimeInput = document.getElementById('preferredTimeForm');
-  const selectedDate = dateInput?.value || '';
-
-  if (!selectedDate || !selectedAppointmentTime) {
-    alert('Selecciona una fecha y un horario primero.');
-    return;
-  }
-
-  if (formDateInput) formDateInput.value = selectedDate;
-  if (formTimeInput) formTimeInput.value = selectedAppointmentTime;
-  document.getElementById('estimate')?.scrollIntoView({ behavior: 'smooth' });
 }
 
 function clearFieldError(input) {

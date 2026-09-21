@@ -333,8 +333,9 @@ img { max-width: 100%; display: block; }
 .category-photo img {
   width: 100%;
   height: 380px;
-  object-fit: cover;
-  object-position: var(--focus, center);
+  object-fit: contain;
+  object-position: center;
+  background: #f7f7f5;
   display: block;
   transition: transform .45s ease;
 }
@@ -343,7 +344,7 @@ img { max-width: 100%; display: block; }
   object-position: center;
   background: #f7f7f5;
 }
-.category-card:hover .category-photo img { transform: scale(1.04); }
+.category-card:hover .category-photo img { transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .category-card:hover .category-photo img { transform: none; }
 }
@@ -615,9 +616,9 @@ img { max-width: 100%; display: block; }
   .modern-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
   .form-row-2 { grid-template-columns: 1fr; }
 
-  /* One plate per row; the photo squares up a little. */
+  /* One plate per row; show each project photo in full without cropping. */
   .category-grid { grid-template-columns: 1fr; gap: 2.25rem; }
-  .category-photo img { height: auto; aspect-ratio: 4 / 3; }
+  .category-photo img { height: min(70vh, 600px); aspect-ratio: auto; }
   .category-photo-contain img { height: min(70vh, 600px); aspect-ratio: auto; }
   .category-card h3 { font-size: 1.55rem; }
 

@@ -58,7 +58,10 @@ export default async function handler(req, res) {
 
   // Validation
   if (!name) return res.status(400).json({ success: false, message: 'El nombre es requerido.' });
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!phone || phone.replace(/\D/g, '').length < 10) {
+    return res.status(400).json({ success: false, message: 'El teléfono es requerido.' });
+  }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ success: false, message: 'El correo no es válido.' });
   }
 
@@ -93,8 +96,8 @@ export default async function handler(req, res) {
       </p>
       <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
         ${row('Nombre', name)}
-        ${row('Correo Electrónico', `<a href="mailto:${email}" style="color:#151210;text-decoration:none;">${email}</a>`)}
-        ${row('Teléfono', phone || 'No especificado')}
+        ${row('Teléfono', `<a href="tel:${phone}" style="color:#151210;text-decoration:none;">${phone}</a>`)}
+        ${row('Correo Electrónico', email ? `<a href="mailto:${email}" style="color:#151210;text-decoration:none;">${email}</a>` : 'No provisto')}
         ${row('Producto de Interés', productLabel)}
         ${preferred_date ? row('Fecha Preferida', preferred_date) : ''}
         ${preferred_time ? row('Horario Preferido', preferred_time) : ''}
@@ -108,8 +111,8 @@ export default async function handler(req, res) {
         </tr>
       </table>
       <div style="margin-top:28px;text-align:center;">
-        <a href="mailto:${email}" style="display:inline-block;background:#9a6f3a;color:#ffffff;padding:12px 28px;border-radius:5px;font-size:13px;font-weight:600;letter-spacing:1px;text-decoration:none;text-transform:uppercase;">
-          Responder a ${name}
+        <a href="tel:${phone}" style="display:inline-block;background:#9a6f3a;color:#ffffff;padding:12px 28px;border-radius:5px;font-size:13px;font-weight:600;letter-spacing:1px;text-decoration:none;text-transform:uppercase;">
+          Llamar a ${name}
         </a>
       </div>
     </td>
@@ -142,21 +145,24 @@ export default async function handler(req, res) {
 
   try {
     // Send notification to business
-    await resend.emails.send({
+    const notification = {
       from:    `${SITE_NAME} <noreply@richardsonindustrialpr.com>`,
       to:      [RECIPIENT_EMAIL],
-      replyTo: email,
       subject: `Nueva Solicitud de Estimado — ${name}`,
       html:    htmlBody,
-    });
+    };
+    if (email) notification.replyTo = email;
+    await resend.emails.send(notification);
 
-    // Send confirmation to client
-    await resend.emails.send({
-      from:    `${SITE_NAME} <info@richardsonindustrialpr.com>`,
-      to:      [email],
-      subject: `Recibimos su solicitud — ${SITE_NAME}`,
-      html:    confirmHtml,
-    });
+    // Send email confirmation only when the client provides an address.
+    if (email) {
+      await resend.emails.send({
+        from:    `${SITE_NAME} <info@richardsonindustrialpr.com>`,
+        to:      [email],
+        subject: `Recibimos su solicitud — ${SITE_NAME}`,
+        html:    confirmHtml,
+      });
+    }
 
     return res.status(200).json({ success: true, message: 'Solicitud enviada exitosamente.' });
   } catch (error) {

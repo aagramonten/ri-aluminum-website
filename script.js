@@ -86,6 +86,59 @@ function copyAppointmentToForm() {
   document.getElementById('estimate')?.scrollIntoView({ behavior: 'smooth' });
 }
 
+function clearFieldError(input) {
+  if (!input) return;
+  input.removeAttribute('aria-invalid');
+  const errorId = input.getAttribute('aria-describedby');
+  const error = errorId ? document.getElementById(errorId) : null;
+  if (error) error.textContent = '';
+}
+
+function setFieldError(input, message) {
+  if (!input) return;
+  input.setAttribute('aria-invalid', 'true');
+  const errorId = input.getAttribute('aria-describedby');
+  const error = errorId ? document.getElementById(errorId) : null;
+  if (error) error.textContent = message;
+}
+
+function validateQuoteForm(form) {
+  const nameInput = form.elements.name;
+  const phoneInput = form.elements.phone;
+  const emailInput = form.elements.email;
+  const inputs = [nameInput, phoneInput, emailInput];
+  inputs.forEach(clearFieldError);
+
+  let firstInvalid = null;
+  const markInvalid = (input, message) => {
+    setFieldError(input, message);
+    if (!firstInvalid) firstInvalid = input;
+  };
+
+  if (!nameInput.value.trim()) {
+    markInvalid(nameInput, 'Escriba su nombre.');
+  }
+
+  const phoneDigits = phoneInput.value.replace(/\D/g, '');
+  if (!phoneDigits) {
+    markInvalid(phoneInput, 'Escriba un número de teléfono.');
+  } else if (phoneDigits.length < 10) {
+    markInvalid(phoneInput, 'Escriba un teléfono válido con código de área.');
+  }
+
+  const email = emailInput.value.trim();
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    markInvalid(emailInput, 'Revise el formato del correo electrónico.');
+  }
+
+  if (firstInvalid) {
+    firstInvalid.focus();
+    return false;
+  }
+
+  return true;
+}
+
 async function handleSubmit(event) {
   event.preventDefault();
   const form = event.target;
@@ -93,8 +146,21 @@ async function handleSubmit(event) {
   const submitBtn = form.querySelector('.submit-btn');
 
   if (messageBox) {
+    messageBox.className = 'form-message';
+    messageBox.textContent = '';
+  }
+
+  if (!validateQuoteForm(form)) {
+    if (messageBox) {
+      messageBox.textContent = 'Revise los campos marcados antes de enviar.';
+      messageBox.classList.add('is-error');
+    }
+    return;
+  }
+
+  if (messageBox) {
     messageBox.textContent = 'Enviando solicitud...';
-    messageBox.style.color = '#9a6f3a';
+    messageBox.classList.add('is-pending');
   }
 
   if (submitBtn) submitBtn.disabled = true;
@@ -110,13 +176,14 @@ async function handleSubmit(event) {
 
     if (messageBox) {
       messageBox.textContent = 'Solicitud enviada. Le responderemos pronto.';
-      messageBox.style.color = '#15803d';
+      messageBox.className = 'form-message is-success';
     }
     form.reset();
+    window.location.assign('/gracias.html');
   } catch (error) {
     if (messageBox) {
-      messageBox.textContent = error.message || 'No se pudo enviar. Intente por WhatsApp.';
-      messageBox.style.color = '#b91c1c';
+      messageBox.textContent = error.message || 'No se pudo enviar. Intente nuevamente o comuníquese por WhatsApp.';
+      messageBox.className = 'form-message is-error';
     }
   } finally {
     if (submitBtn) submitBtn.disabled = false;

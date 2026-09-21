@@ -453,28 +453,31 @@
         </div>
       </div>
 
-      <form id="quoteForm" class="quote-form reveal" action="/api/send_email" method="POST" onsubmit="handleSubmit(event)">
+      <form id="quoteForm" class="quote-form reveal" action="/api/send_email" method="POST" onsubmit="handleSubmit(event)" novalidate>
         <div class="form-title">Solicitar Estimado</div>
 
         <div class="form-row-2">
           <div class="form-group">
-            <label>Nombre *</label>
-            <input type="text" name="name" required placeholder="Nombre y Apellido" />
+            <label for="quoteName">Nombre *</label>
+            <input id="quoteName" type="text" name="name" required autocomplete="name" placeholder="Nombre y apellido" aria-describedby="quoteNameError" />
+            <span class="field-error" id="quoteNameError"></span>
           </div>
           <div class="form-group">
-            <label>Teléfono</label>
-            <input type="tel" name="phone" placeholder="Número de Teléfono" />
+            <label for="quotePhone">Teléfono *</label>
+            <input id="quotePhone" type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="Número de teléfono" aria-describedby="quotePhoneError" />
+            <span class="field-error" id="quotePhoneError"></span>
           </div>
         </div>
 
         <div class="form-group">
-          <label>Correo Electrónico *</label>
-          <input type="email" name="email" required placeholder="Correo electrónico" />
+          <label for="quoteEmail">Correo electrónico <span class="optional-label">(opcional)</span></label>
+          <input id="quoteEmail" type="email" name="email" autocomplete="email" placeholder="Correo electrónico" aria-describedby="quoteEmailError" />
+          <span class="field-error" id="quoteEmailError"></span>
         </div>
 
         <div class="form-group">
-          <label>Tipo de Producto</label>
-          <select name="product_interest">
+          <label for="quoteProduct">Tipo de producto</label>
+          <select id="quoteProduct" name="product_interest">
             <option value="entry">Puertas (Interior/Exterior)</option>
             <option value="window">Ventanas y Cristales Fijos</option>
             <option value="railing">Barandales (Cristal/Aluminio)</option>
@@ -486,18 +489,18 @@
 
         <div class="form-row-2">
           <div class="form-group">
-            <label>Fecha preferida</label>
+            <label for="preferredDateForm">Fecha preferida</label>
             <input type="date" name="preferred_date" id="preferredDateForm" />
           </div>
           <div class="form-group">
-            <label>Horario preferido</label>
+            <label for="preferredTimeForm">Horario preferido</label>
             <input type="text" name="preferred_time" id="preferredTimeForm" placeholder="Ej. 10:00 AM - 2:00 PM" />
           </div>
         </div>
 
         <div class="form-group">
-          <label>Mensaje o Medidas</label>
-          <textarea name="message" rows="4" placeholder="Describa su proyecto, medidas aproximadas o zona donde está ubicado..."></textarea>
+          <label for="quoteMessage">Mensaje o medidas</label>
+          <textarea id="quoteMessage" name="message" rows="4" placeholder="Describa su proyecto, medidas aproximadas o zona donde está ubicado..."></textarea>
         </div>
 
         <div class="honeypot" aria-hidden="true">
@@ -505,7 +508,7 @@
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <div class="form-message" id="formMessage"></div>
+        <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
         <button type="submit" class="submit-btn">Enviar Solicitud →</button>
       </form>
     </div>

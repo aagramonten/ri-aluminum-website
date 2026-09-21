@@ -526,8 +526,23 @@ img { max-width: 100%; display: block; }
 .form-group { margin-bottom: 1rem; }
 .form-group label { display: block; font-weight: 700; margin-bottom: .45rem; }
 .submit-btn { width: 100%; background: var(--primary-dark); color: #fff; border: none; border-radius: 0; }
-.form-message { margin-bottom: 1rem; font-weight: 700; }
+.form-message { margin-bottom: 1rem; font-weight: 700; line-height: 1.45; }
+.form-message:empty { display: none; }
+.form-message.is-pending { color: #805a3a; }
+.form-message.is-success { color: #15803d; }
+.form-message.is-error { color: #b42318; }
+.field-error { display: block; min-height: 1.25rem; margin-top: .35rem; color: #b42318; font-size: .78rem; font-weight: 600; }
+.optional-label { color: var(--muted); font-size: .82em; font-weight: 500; }
+.form-group [aria-invalid="true"] { border-color: #b42318; outline: 2px solid rgba(180,35,24,.12); outline-offset: 1px; }
 .honeypot { position: absolute; left: -9999px; }
+
+/* --- PÁGINA DE CONFIRMACIÓN --- */
+.thanks-page { min-height: 100svh; display: grid; place-items: center; padding: 2rem; background: #f7f7f5; }
+.thanks-card { width: min(620px, 100%); padding: clamp(2rem, 6vw, 4rem); background: #fff; border: 1px solid var(--border); text-align: center; box-shadow: 0 20px 55px rgba(0,0,0,.08); }
+.thanks-logo { width: 120px; height: auto; margin: 0 auto 2rem; }
+.thanks-card h1 { margin-bottom: 1rem; font-size: clamp(2rem, 7vw, 3.4rem); letter-spacing: -.04em; }
+.thanks-card p { color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+.thanks-card .btn-primary { display: inline-flex; background: var(--dark); color: #fff; }
 
 /* --- FOOTER & CTA FINAL --- */
 .final-cta { padding: 6rem 5%; text-align: center; background: var(--ink); color: #fff; }

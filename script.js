@@ -210,6 +210,9 @@ function dismissBubble() {
 // ── Gallery Modal ─────────────────────────────────────────────────
 function openGalleryModal(src, caption) {
   const modal = document.getElementById('galleryModal');
+  const source = document.getElementById('galleryModalSource');
+  const webpBase = src.replace(/\.(jpe?g|png)$/i, '');
+  if (source) source.srcset = `${webpBase}-600.webp 600w, ${webpBase}-1200.webp 1200w`;
   document.getElementById('galleryModalImg').src = src;
   document.getElementById('galleryModalCaption').textContent = caption;
   modal.classList.add('active');
